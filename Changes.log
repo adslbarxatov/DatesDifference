@@ -4,4 +4,5 @@ Version 1.6:
 • Old stable assembly on VB6, released on GitHub
 
 Version 2.0:
-• C# re-creation of Dates difference
+• C# re-creation of Dates difference;
+• Fixed bug in Policy acception interface that disallowed to accept it in offline mode on app first start
