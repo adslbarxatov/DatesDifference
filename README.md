@@ -12,12 +12,14 @@ Difference in dates evaluator
 ## Requirements / Требования
 
 - Windows version requires Windows XP or newer, Framework 4.0 or newer. Interface languages: ru_ru, en_us;
-- Android version *will need* OS version 4.4 or newer. Interface languages: ru_ru, en_us;
-- Android version on the AppGallery platform *will be* available for download
+- Android version **will need** OS version 4.4 or newer. Interface languages: ru_ru, en_us;
+- Android version on the AppGallery platform **will be** available for download
+
+&nbsp;
 
 - Для Windows-версии требуется ОС Windows XP или новее, Framework 4.0 или новее. Языки интерфейса: ru_ru, en_us;
-- Для Android-версии *потребуется* ОС версии 4.4 или новее. Языки интерфейса: ru_ru, en_us;
-- Android-версия на платформе AppGallery *будет* также доступна для загрузки
+- Для Android-версии **потребуется** ОС версии 4.4 или новее. Языки интерфейса: ru_ru, en_us;
+- Android-версия на платформе AppGallery **будет** также доступна для загрузки
 
 &nbsp;
 
