@@ -11,15 +11,9 @@ Difference in dates evaluator
 
 ## Requirements / Требования
 
-- Windows version requires Windows XP or newer, Framework 4.0 or newer. Interface languages: ru_ru, en_us;
-- Android version **will need** OS version 4.4 or newer. Interface languages: ru_ru, en_us;
-- Android version on the AppGallery platform **will be** available for download
+Windows version requires Windows XP or newer, Framework 4.0 or newer. Interface languages: ru_ru, en_us
 
-&nbsp;
-
-- Для Windows-версии требуется ОС Windows XP или новее, Framework 4.0 или новее. Языки интерфейса: ru_ru, en_us;
-- Для Android-версии **потребуется** ОС версии 4.4 или новее. Языки интерфейса: ru_ru, en_us;
-- Android-версия на платформе AppGallery **будет** также доступна для загрузки
+Для Windows-версии требуется ОС Windows XP или новее, Framework 4.0 или новее. Языки интерфейса: ru_ru, en_us
 
 &nbsp;
 
@@ -29,13 +23,11 @@ Difference in dates evaluator
 
 This Policy (ADP), its positions, conclusion, EULA and application methods
 describes general rules that we follow in all of our development processes, released applications and implemented ideas.
-**It must be acquainted by participants and users before using any of laboratory’s products.
-By downloading them, you agree and accept this Policy!**
-
-&nbsp;
+***It must be acquainted by participants and users before using any of laboratory’s products.
+By downloading them, you agree and accept this Policy!***
 
 Данная Политика (ADP), её положения, заключение, EULA и способы применения
 описывают общие правила, которым мы следуем во всех наших процессах разработки, вышедших в релиз приложениях
 и реализованных идеях.
-**Обязательна к ознакомлению для всех участников и пользователей перед использованием любого из продуктов лаборатории.
-Загружая их, вы соглашаетесь и принимаете эту Политику!**
+***Обязательна к ознакомлению для всех участников и пользователей перед использованием любого из продуктов лаборатории.
+Загружая их, вы соглашаетесь и принимаете эту Политику!***
