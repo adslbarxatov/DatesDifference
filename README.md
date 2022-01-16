@@ -1,5 +1,5 @@
-# DatesDifference v 2.3
-> PCC: 000447D5CE6AE3C9
+# DatesDifference v 2.3.1
+> PCC: 000485E2075EB14C
 
 
 Difference in dates evaluator
@@ -11,9 +11,10 @@ Difference in dates evaluator
 
 ## Requirements / Требования
 
-Windows version requires Windows XP or newer, Framework 4.0 or newer. Interface languages: ru_ru, en_us
+- Windows XP or newer / или новее;
+- [Microsoft .NET Framework 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=17718).
 
-Для Windows-версии требуется ОС Windows XP или новее, Framework 4.0 или новее. Языки интерфейса: ru_ru, en_us
+Interface languages / языки интерфейса: ru_ru, en_us.
 
 &nbsp;
 
