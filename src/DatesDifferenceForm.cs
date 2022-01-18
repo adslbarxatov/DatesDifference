@@ -7,10 +7,11 @@ namespace RD_AAOW
 	/// <summary>
 	/// Класс описывает главную форму приложения
 	/// </summary>
-	public partial class DatesDifferenceForm: Form
+	public partial class DatesDifferenceForm:Form
 		{
 		// Переменные
 		private SupportedLanguages al = Localization.CurrentLanguage;
+		private char[] splitter = new char[] { '\n' };
 
 		/// <summary>
 		/// Конструктор. Запускает главную форму
@@ -43,6 +44,14 @@ namespace RD_AAOW
 
 			// Локализация
 			Localization.SetControlsText (this, al);
+
+			string[] values = Localization.GetText ("AdditionalItems", al).Split (splitter, StringSplitOptions.RemoveEmptyEntries);
+
+			int currentItem = (AdditionalItem.SelectedIndex < 0) ? 3 : AdditionalItem.SelectedIndex;	// Дни
+			AdditionalItem.Items.Clear ();
+			AdditionalItem.Items.AddRange (values);
+			AdditionalItem.SelectedIndex = currentItem;
+
 			Date_ValueChanged (null, null);
 			}
 
@@ -113,6 +122,57 @@ namespace RD_AAOW
 
 			ResultLabel.Text = string.Format (Localization.GetText ("FullFormat", al), diff.Days, diff.Hours,
 				diff.Minutes, diff.Seconds) + "\n" + ResultLabel.Text.Replace (' ', '\'').Replace ('\xA0', '\'');
+			}
+
+		// Добавление значений
+		private DateTime AddTime (DateTime OldTime)
+			{
+			switch (AdditionalItem.SelectedIndex)
+				{
+				// Секунды
+				case 0:
+					return OldTime.AddSeconds ((double)AdditionalValue.Value);
+
+				// Минуты
+				case 1:
+					return OldTime.AddMinutes ((double)AdditionalValue.Value);
+
+				// Часы
+				case 2:
+					return OldTime.AddHours ((double)AdditionalValue.Value);
+
+				// Дни
+				case 3:
+					return OldTime.AddDays ((double)AdditionalValue.Value);
+
+				// Недели
+				case 4:
+					return OldTime.AddDays ((double)AdditionalValue.Value * 7.0);
+
+				default:
+					return OldTime;
+				}
+			}
+
+		private void StartDateAdd_Click (object sender, EventArgs e)
+			{
+			DateTimePicker field = (((Button)sender).Name == "StartDateAdd") ? StartDate : EndDate;
+			DateTime newTime = AddTime (field.Value);
+
+			if ((newTime < field.MinDate) || (newTime > field.MaxDate))
+				{
+				MessageBox.Show (Localization.GetText ("DateTruncated", al), ProgramDescription.AssemblyTitle,
+					MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+				if (newTime < StartDate.MinDate)
+					field.Value = field.MinDate;
+				else
+					field.Value = field.MaxDate;
+
+				return;
+				}
+
+			field.Value = newTime;
 			}
 		}
 	}

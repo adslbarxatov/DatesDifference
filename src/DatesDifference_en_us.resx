@@ -151,4 +151,20 @@ Full years:</value>
   <data name="FullFormat" xml:space="preserve">
     <value>{0:D} d. {1:D} h. {2:D} m. {3:D} s.</value>
   </data>
+  <data name="AdditionalItems" xml:space="preserve">
+    <value>seconds
+minutes
+hours
+days
+weeks</value>
+  </data>
+  <data name="DatesDifferenceForm_EndDateAdd" xml:space="preserve">
+    <value>A&amp;dd</value>
+  </data>
+  <data name="DatesDifferenceForm_StartDateAdd" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="DateTruncated" xml:space="preserve">
+    <value>Date / time value has been truncated</value>
+  </data>
 </root>

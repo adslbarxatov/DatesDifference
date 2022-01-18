@@ -151,4 +151,20 @@
   <data name="FullFormat" xml:space="preserve">
     <value>{0:D} д. {1:D} ч. {2:D} м. {3:D} с.</value>
   </data>
+  <data name="AdditionalItems" xml:space="preserve">
+    <value>секунд
+минут
+часов
+дней
+недель</value>
+  </data>
+  <data name="DatesDifferenceForm_EndDateAdd" xml:space="preserve">
+    <value>Д&amp;обавить</value>
+  </data>
+  <data name="DatesDifferenceForm_StartDateAdd" xml:space="preserve">
+    <value>&amp;Добавить</value>
+  </data>
+  <data name="DateTruncated" xml:space="preserve">
+    <value>Значение даты / времени было усечено</value>
+  </data>
 </root>

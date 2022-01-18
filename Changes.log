@@ -1,5 +1,9 @@
 DatesDifference changes log
 
+Version 2.4:
+• Added ability to increment / decrement fields by different time periods. It allows you
+  to find needed date by range in addition to finding range by dates
+
 Version 2.3.3:
 • Current updates and improvements applied
 
