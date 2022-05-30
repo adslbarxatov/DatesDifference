@@ -47,7 +47,7 @@ namespace RD_AAOW
 
 			string[] values = Localization.GetText ("AdditionalItems", al).Split (splitter, StringSplitOptions.RemoveEmptyEntries);
 
-			int currentItem = (AdditionalItem.SelectedIndex < 0) ? 3 : AdditionalItem.SelectedIndex;	// Дни
+			int currentItem = (AdditionalItem.SelectedIndex < 0) ? 3 : AdditionalItem.SelectedIndex;    // Дни
 			AdditionalItem.Items.Clear ();
 			AdditionalItem.Items.AddRange (values);
 			AdditionalItem.SelectedIndex = currentItem;
@@ -118,10 +118,13 @@ namespace RD_AAOW
 			if ((months > 0) && (endMonthOffset < startMonthOffset))
 				months--;
 
-			ResultLabel.Text += months.ToString () + "\n" + (months / 12).ToString ();
+			ResultLabel.Text += months.ToString () +
+				"@(" + (months / 12).ToString () + "@×@12@+@" + (months % 12).ToString () + ")\n";
+			ResultLabel.Text += (months / 12).ToString ();
 
 			ResultLabel.Text = string.Format (Localization.GetText ("FullFormat", al), diff.Days, diff.Hours,
-				diff.Minutes, diff.Seconds) + "\n" + ResultLabel.Text.Replace (' ', '\'').Replace ('\xA0', '\'');
+				diff.Minutes, diff.Seconds) + "\n" +
+				ResultLabel.Text.Replace (' ', '\'').Replace ('\xA0', '\'').Replace ("@", " ");
 			}
 
 		// Добавление значений

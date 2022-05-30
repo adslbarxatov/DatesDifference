@@ -1,5 +1,8 @@
 DatesDifference changes log
 
+Version 2.6:
+• Added a factorization for months quantity
+
 Version 2.5:
 • Parsing methods for ADP and projects descriptions have been upgraded;
 • Current updates and improvements applied
