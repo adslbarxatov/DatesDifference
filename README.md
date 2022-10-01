@@ -1,5 +1,5 @@
-# DatesDifference v 2.6
-> PCC: 0003C8181EA00FC1
+# DatesDifference v 3.0
+> PCC: 000321ED4FFFDDFF
 
 
 Difference in dates evaluator. Displays the difference in seconds, minutes, hours, days, weeks, full months and years (with fraction)
@@ -11,8 +11,8 @@ Difference in dates evaluator. Displays the difference in seconds, minutes, hour
 
 ## Requirements / Требования
 
-- Windows XP or newer / или новее;
-- [Microsoft .NET Framework 4.0](https://microsoft.com/en-us/download/details.aspx?id=17718).
+- Windows 7 or newer / или новее;
+- [Microsoft .NET Framework 4.8](https://go.microsoft.com/fwlink/?linkid=2088631).
 
 Interface languages / языки интерфейса: ru_ru, en_us.
 

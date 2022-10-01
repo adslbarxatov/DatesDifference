@@ -99,7 +99,8 @@ namespace RD_AAOW
 
 			// Вычисление
 			TimeSpan diff = end - start;
-			double seconds = (((ulong)diff.Days * 24 + (ulong)diff.Hours) * 60 + (ulong)diff.Minutes) * 60 + (ulong)diff.Seconds;
+			double seconds = (((ulong)diff.Days * 24 + (ulong)diff.Hours) * 60 + (ulong)diff.Minutes) * 60 +
+				(ulong)diff.Seconds;
 
 			ResultLabel.Text = seconds.ToString ("#,#0") + "\n";
 			seconds /= 60.0;
