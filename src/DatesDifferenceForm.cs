@@ -7,7 +7,7 @@ namespace RD_AAOW
 	/// <summary>
 	/// Класс описывает главную форму приложения
 	/// </summary>
-	public partial class DatesDifferenceForm:Form
+	public partial class DatesDifferenceForm: Form
 		{
 		// Переменные
 		private SupportedLanguages al = Localization.CurrentLanguage;
@@ -21,6 +21,7 @@ namespace RD_AAOW
 			// Инициализация
 			InitializeComponent ();
 			this.Text = ProgramDescription.AssemblyTitle;
+			RDGenerics.LoadWindowDimensions (this);
 
 			LanguageCombo.Items.AddRange (Localization.LanguagesNames);
 			try
@@ -60,13 +61,18 @@ namespace RD_AAOW
 			{
 			e.Cancel = true;
 
-			ProgramDescription.ShowAbout (false);
+			RDGenerics.ShowAbout (false);
 			}
 
 		// Закрытие окна
 		private void BExit_Click (object sender, EventArgs e)
 			{
 			this.Close ();
+			}
+
+		private void DatesDifferenceForm_FormClosing (object sender, FormClosingEventArgs e)
+			{
+			RDGenerics.SaveWindowDimensions (this);
 			}
 
 		// Задание значений в полях дат
@@ -165,8 +171,9 @@ namespace RD_AAOW
 
 			if ((newTime < field.MinDate) || (newTime > field.MaxDate))
 				{
-				MessageBox.Show (Localization.GetText ("DateTruncated", al), ProgramDescription.AssemblyTitle,
-					MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				/*MessageBox.Shw (Localization.GetText ("DateTruncated", al), ProgramDescription.AssemblyTitle,
+					MessageBoxButtons.OK, MessageBoxIcon.Exclamation);*/
+				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "DateTruncated");
 
 				if (newTime < StartDate.MinDate)
 					field.Value = field.MinDate;
