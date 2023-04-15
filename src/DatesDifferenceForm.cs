@@ -10,7 +10,6 @@ namespace RD_AAOW
 	public partial class DatesDifferenceForm: Form
 		{
 		// Переменные
-		/*private SupportedLanguages al = Localization.CurrentLanguage;*/
 		private char[] splitter = new char[] { '\n' };
 
 		/// <summary>
@@ -172,8 +171,6 @@ namespace RD_AAOW
 
 			if ((newTime < field.MinDate) || (newTime > field.MaxDate))
 				{
-				/*MessageBox.Shw (Localization.GetText ("DateTruncated", al), ProgramDescription.AssemblyTitle,
-					MessageBoxButtons.OK, MessageBoxIcon.Exclamation);*/
 				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "DateTruncated");
 
 				if (newTime < StartDate.MinDate)

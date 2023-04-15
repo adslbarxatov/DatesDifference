@@ -1,5 +1,5 @@
-# DatesDifference v 3.1.7
-> PCC: 000393F2316EFE58
+# DatesDifference v 3.2
+> PCC: 000399E89864656C
 
 
 This tool evaluates the difference in dates. It displays the difference in seconds, minutes, hours, days, weeks, full months and years (with fraction)
