@@ -120,9 +120,6 @@
   <data name="HelpText" xml:space="preserve">
     <value>Это приложение вычисляет разницу между двумя датами в разных представлениях</value>
   </data>
-  <data name="DatesDifferenceForm_BExit" xml:space="preserve">
-    <value>В&amp;ыход</value>
-  </data>
   <data name="DatesDifferenceForm_EndDateLabel" xml:space="preserve">
     <value>&amp;Вторая дата:</value>
   </data>
@@ -154,12 +151,6 @@
 часов
 дней
 недель</value>
-  </data>
-  <data name="DatesDifferenceForm_EndDateAdd" xml:space="preserve">
-    <value>Д&amp;обавить</value>
-  </data>
-  <data name="DatesDifferenceForm_StartDateAdd" xml:space="preserve">
-    <value>&amp;Добавить</value>
   </data>
   <data name="DateTruncated" xml:space="preserve">
     <value>Значение даты / времени было усечено</value>

@@ -44,6 +44,9 @@ namespace RD_AAOW
 
 			// Локализация
 			Localization.SetControlsText (this);
+			BExit.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Exit);
+			StartDateAdd.Text = EndDateAdd.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Add);
+			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");
 
 			string[] values = Localization.GetText ("AdditionalItems").Split (splitter,
 				StringSplitOptions.RemoveEmptyEntries);
