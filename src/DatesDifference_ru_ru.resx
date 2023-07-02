@@ -155,16 +155,4 @@
   <data name="DateTruncated" xml:space="preserve">
     <value>Значение даты / времени было усечено</value>
   </data>
-  <data name="BeginTheGame" xml:space="preserve">
-    <value>&amp;Начать игру</value>
-  </data>
-  <data name="GetHelp" xml:space="preserve">
-    <value>&amp;Справка</value>
-  </data>
-  <data name="SkipTurn" xml:space="preserve">
-    <value>&amp;Пропустить ход</value>
-  </data>
-  <data name="TakeCard" xml:space="preserve">
-    <value>&amp;Взять карту</value>
-  </data>
 </root>
