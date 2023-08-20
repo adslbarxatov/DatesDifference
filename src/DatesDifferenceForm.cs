@@ -111,15 +111,15 @@ namespace RD_AAOW
 			double seconds = (((ulong)diff.Days * 24 + (ulong)diff.Hours) * 60 + (ulong)diff.Minutes) * 60 +
 				(ulong)diff.Seconds;
 
-			ResultLabel.Text = seconds.ToString ("#,#0") + "\n";
+			ResultLabel.Text = seconds.ToString ("#,#0") + Localization.RN;
 			seconds /= 60.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.###") + "\n";
+			ResultLabel.Text += seconds.ToString ("#,#0.###") + Localization.RN;
 			seconds /= 60.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.#####") + "\n";
+			ResultLabel.Text += seconds.ToString ("#,#0.#####") + Localization.RN;
 			seconds /= 24.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.######") + "\n";
+			ResultLabel.Text += seconds.ToString ("#,#0.######") + Localization.RN;
 			seconds /= 7.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.#######") + "\n";
+			ResultLabel.Text += seconds.ToString ("#,#0.#######") + Localization.RN;
 
 			ulong startMonthOffset = (ulong)(((start.Day * 24 + start.Hour) * 60 + start.Minute) * 60 + start.Second);
 			ulong endMonthOffset = (ulong)(((end.Day * 24 + end.Hour) * 60 + end.Minute) * 60 + end.Second);
@@ -129,11 +129,11 @@ namespace RD_AAOW
 				months--;
 
 			ResultLabel.Text += months.ToString () +
-				"@(" + (months / 12).ToString () + "@×@12@+@" + (months % 12).ToString () + ")\n";
+				"@(" + (months / 12).ToString () + "@×@12@+@" + (months % 12).ToString () + ")" + Localization.RN;
 			ResultLabel.Text += (months / 12).ToString ();
 
 			ResultLabel.Text = string.Format (Localization.GetText ("FullFormat"), diff.Days, diff.Hours,
-				diff.Minutes, diff.Seconds) + "\n" +
+				diff.Minutes, diff.Seconds) + Localization.RN +
 				ResultLabel.Text.Replace (' ', '\'').Replace ('\xA0', '\'').Replace ("@", " ");
 			}
 

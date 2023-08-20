@@ -1,5 +1,8 @@
 Dates difference: changes log
 
+Version 3.3.6:
+• Cumulative updates applied
+
 Version 3.3.5:
 • Fixed some issues with the Policy loader where it would sometimes ask for multiple confirmations;
 • Implemented the access rights checker: it will test the availability of the Windows registry
