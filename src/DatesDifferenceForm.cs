@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace RD_AAOW
@@ -45,6 +44,8 @@ namespace RD_AAOW
 			// Локализация
 			Localization.SetControlsText (this);
 			BExit.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Exit);
+			AboutButton.Text = Localization.GetDefaultText (LzDefaultTextValues.Control_AppAbout);
+
 			StartDateAdd.Text = EndDateAdd.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Add);
 			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");
 
@@ -60,10 +61,8 @@ namespace RD_AAOW
 			}
 
 		// Запрос справки
-		private void DatesDifferenceForm_HelpButtonClicked (object sender, CancelEventArgs e)
+		private void AboutButton_Clicked (object sender, EventArgs e)
 			{
-			e.Cancel = true;
-
 			RDGenerics.ShowAbout (false);
 			}
 

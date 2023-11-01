@@ -1,12 +1,18 @@
-# DatesDifference v 3.3.11
-> PCC: 000328E4FCDFB09B
+# DatesDifference
+
+## Description
+
+This tool evaluates the difference in dates. It allows you to display the difference in seconds, minutes,
+hours, days, weeks, full months and years (with fraction)
+
+&nbsp;
 
 
-This tool evaluates the difference in dates. It displays the difference in seconds, minutes, hours, days, weeks, full months and years (with fraction)
 
----
+## Описание
 
-Этот инструмент вычисляет разницу между датами. Он отображает разницу в секундах, минутах, часах, днях, неделях, полных месяцах и годах (с дробной частью)
+Этот инструмент вычисляет разницу между датами. Он позволяет отобразить разницу в секундах, минутах,
+часах, днях, неделях, полных месяцах и годах (с дробной частью)
 
 &nbsp;
 
