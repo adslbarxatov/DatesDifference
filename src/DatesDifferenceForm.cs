@@ -21,10 +21,10 @@ namespace RD_AAOW
 			this.Text = ProgramDescription.AssemblyTitle;
 			RDGenerics.LoadWindowDimensions (this);
 
-			LanguageCombo.Items.AddRange (Localization.LanguagesNames);
+			LanguageCombo.Items.AddRange (RDLocale.LanguagesNames);
 			try
 				{
-				LanguageCombo.SelectedIndex = (int)Localization.CurrentLanguage;
+				LanguageCombo.SelectedIndex = (int)RDLocale.CurrentLanguage;
 				}
 			catch
 				{
@@ -39,17 +39,17 @@ namespace RD_AAOW
 		private void LanguageCombo_SelectedIndexChanged (object sender, EventArgs e)
 			{
 			// Сохранение языка
-			Localization.CurrentLanguage = (SupportedLanguages)LanguageCombo.SelectedIndex;
+			RDLocale.CurrentLanguage = (RDLanguages)LanguageCombo.SelectedIndex;
 
 			// Локализация
-			Localization.SetControlsText (this);
-			BExit.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Exit);
-			AboutButton.Text = Localization.GetDefaultText (LzDefaultTextValues.Control_AppAbout);
+			RDLocale.SetControlsText (this);
+			BExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
+			AboutButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout);
 
-			StartDateAdd.Text = EndDateAdd.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Add);
+			StartDateAdd.Text = EndDateAdd.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Add);
 			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");
 
-			string[] values = Localization.GetText ("AdditionalItems").Split (splitter,
+			string[] values = RDLocale.GetText ("AdditionalItems").Split (splitter,
 				StringSplitOptions.RemoveEmptyEntries);
 
 			int currentItem = (AdditionalItem.SelectedIndex < 0) ? 3 : AdditionalItem.SelectedIndex;    // Дни
@@ -110,16 +110,28 @@ namespace RD_AAOW
 			double seconds = (((ulong)diff.Days * 24 + (ulong)diff.Hours) * 60 + (ulong)diff.Minutes) * 60 +
 				(ulong)diff.Seconds;
 
-			ResultLabel.Text = seconds.ToString ("#,#0") + Localization.RN;
+			// Секунды, минуты, часы, дни, недели
+			ResultLabel2.Text = seconds.ToString ("#,#0") + RDLocale.RN;
+			ResultLabel3.Text = RDLocale.RN;
 			seconds /= 60.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.###") + Localization.RN;
-			seconds /= 60.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.#####") + Localization.RN;
-			seconds /= 24.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.######") + Localization.RN;
-			seconds /= 7.0;
-			ResultLabel.Text += seconds.ToString ("#,#0.#######") + Localization.RN;
 
+			ResultLabel2.Text += ((long)seconds).ToString ("#,#0") + RDLocale.RN;
+			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0##") + RDLocale.RN;
+			seconds /= 60.0;
+
+			ResultLabel2.Text += ((long)seconds).ToString ("#,#0") + RDLocale.RN;
+			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0####") + RDLocale.RN;
+			seconds /= 24.0;
+
+			ResultLabel2.Text += ((long)seconds).ToString ("#,#0") + RDLocale.RN;
+			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0#####") + RDLocale.RN;
+			seconds /= 7.0;
+
+			ResultLabel2.Text += ((long)seconds).ToString ("#,#0");
+			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0######");
+			ResultLabel2.Text = ResultLabel2.Text.Replace ('\xA0', '’');
+
+			// Месяцы, годы
 			ulong startMonthOffset = (ulong)(((start.Day * 24 + start.Hour) * 60 + start.Minute) * 60 + start.Second);
 			ulong endMonthOffset = (ulong)(((end.Day * 24 + end.Hour) * 60 + end.Minute) * 60 + end.Second);
 
@@ -127,13 +139,13 @@ namespace RD_AAOW
 			if ((months > 0) && (endMonthOffset < startMonthOffset))
 				months--;
 
-			ResultLabel.Text += months.ToString () +
-				"@(" + (months / 12).ToString () + "@×@12@+@" + (months % 12).ToString () + ")" + Localization.RN;
-			ResultLabel.Text += (months / 12).ToString ();
+			ResultLabel4.Text = months.ToString () +
+				" (" + (months / 12).ToString () + " × 12 + " + (months % 12).ToString () + ")" + RDLocale.RN;
+			ResultLabel4.Text += (months / 12).ToString ();
 
-			ResultLabel.Text = string.Format (Localization.GetText ("FullFormat"), diff.Days, diff.Hours,
-				diff.Minutes, diff.Seconds) + Localization.RN +
-				ResultLabel.Text.Replace (' ', '\'').Replace ('\xA0', '\'').Replace ("@", " ");
+			// Полный формат
+			ResultLabel1.Text = string.Format (RDLocale.GetText ("FullFormat"), diff.Days, diff.Hours,
+				diff.Minutes, diff.Seconds);
 			}
 
 		// Добавление значений
