@@ -1,4 +1,3 @@
-_Changes for v 3.4_:
+_Changes for v 3.4.1_:
 - Improved the date presentation;
-- Core updates have been applied;
-- Added a new version of offline help
+- Core updates have been applied
