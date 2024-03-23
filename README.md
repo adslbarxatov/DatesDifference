@@ -2,8 +2,8 @@
 
 ## Description
 
-This tool evaluates the difference in dates. It allows you to display the difference in seconds, minutes,
-hours, days, weeks, full months and years (with fraction)
+A tool for managing Windows registry settings for file extensions.
+Detailed description of the app is now available on [its own page](https://adslbarxatov.github.io/DatesDifference)
 
 &nbsp;
 
@@ -11,8 +11,8 @@ hours, days, weeks, full months and years (with fraction)
 
 ## Описание
 
-Этот инструмент вычисляет разницу между датами. Он позволяет отобразить разницу в секундах, минутах,
-часах, днях, неделях, полных месяцах и годах (с дробной частью)
+Инструмент управления пользовательскими настройками расширений файлов в Windows.
+Подробное описание приложения теперь доступно на [отдельной странице](https://adslbarxatov.github.io/DatesDifference/ru)
 
 &nbsp;
 
