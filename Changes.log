@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 3.4.5:
+• Updated HypeHelp and Updates checker mechanics: this should fix apps freezing immediately
+  after launch (on some PCs)
+
 Version 3.4.3:
 • Updated the HypeHelp links list
 
