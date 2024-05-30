@@ -2,7 +2,7 @@
 
 ## Description
 
-A tool for managing Windows registry settings for file extensions.
+A tool for evaluating the difference in two dates.
 Detailed description of the app is now available on [its own page](https://adslbarxatov.github.io/DatesDifference)
 
 &nbsp;
@@ -11,7 +11,7 @@ Detailed description of the app is now available on [its own page](https://adslb
 
 ## Описание
 
-Инструмент управления пользовательскими настройками расширений файлов в Windows.
+Инструмент для определения разницы между двумя датами.
 Подробное описание приложения теперь доступно на [отдельной странице](https://adslbarxatov.github.io/DatesDifference/ru)
 
 &nbsp;
@@ -21,7 +21,7 @@ Detailed description of the app is now available on [its own page](https://adslb
 ## Requirements / Требования
 
 - Windows 7 or newer / или новее;
-- [Microsoft .NET Framework 4.8](https://go.microsoft.com/fwlink/?linkid=2088631).
+- Microsoft .NET Framework 4.8.1.
 
 Interface languages / языки интерфейса: ru_ru, en_us.
 
