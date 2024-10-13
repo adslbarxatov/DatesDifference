@@ -8,9 +8,6 @@ namespace RD_AAOW
 	/// </summary>
 	public partial class DatesDifferenceForm: Form
 		{
-		// Переменные
-		private char[] splitter = new char[] { '\n' };
-
 		/// <summary>
 		/// Конструктор. Запускает главную форму
 		/// </summary>
@@ -31,8 +28,10 @@ namespace RD_AAOW
 				LanguageCombo.SelectedIndex = 0;
 				}
 
-			DateNow_Click (StartDateNow, null);
-			DateNow_Click (EndDateNow, null);
+			/*DateNow_Click (StartDateNow, null);
+			DateNow_Click (EndDateNow, null);*/
+			StartDate.Value = DDMath.FirstSavedDate;
+			EndDate.Value = DDMath.SecondSavedDate;
 			}
 
 		// Локализация формы
@@ -49,12 +48,10 @@ namespace RD_AAOW
 			StartDateAdd.Text = EndDateAdd.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Add);
 			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");
 
-			string[] values = RDLocale.GetText ("AdditionalItems").Split (splitter,
-				StringSplitOptions.RemoveEmptyEntries);
-
-			int currentItem = (AdditionalItem.SelectedIndex < 0) ? 3 : AdditionalItem.SelectedIndex;    // Дни
+			int currentItem = (AdditionalItem.SelectedIndex < 0) ? (int)DDIncrements.Days :
+				AdditionalItem.SelectedIndex;
 			AdditionalItem.Items.Clear ();
-			AdditionalItem.Items.AddRange (values);
+			AdditionalItem.Items.AddRange (DDMath.IncrementNames);
 			AdditionalItem.SelectedIndex = currentItem;
 
 			Date_ValueChanged (null, null);
@@ -74,6 +71,8 @@ namespace RD_AAOW
 
 		private void DatesDifferenceForm_FormClosing (object sender, FormClosingEventArgs e)
 			{
+			DDMath.FirstSavedDate = StartDate.Value;
+			DDMath.SecondSavedDate = EndDate.Value;
 			RDGenerics.SaveWindowDimensions (this);
 			}
 
@@ -82,14 +81,11 @@ namespace RD_AAOW
 			{
 			try
 				{
-				DateTime res = new DateTime (DateTime.Now.Year, DateTime.Now.Month,
-					DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
 				Button b = (Button)sender;
 				if (b.Name.Contains ("Start"))
-					StartDate.Value = res;
+					StartDate.Value = DDMath.NowSeconds;
 				else
-					EndDate.Value = res;
+					EndDate.Value = DDMath.NowSeconds;
 				}
 			catch { }
 			}
@@ -97,95 +93,24 @@ namespace RD_AAOW
 		// Вычисление
 		private void Date_ValueChanged (object sender, EventArgs e)
 			{
-			// Инициализация
-			DateTime start = StartDate.Value, end = EndDate.Value;
-			if (StartDate.Value > EndDate.Value)
-				{
-				end = StartDate.Value;
-				start = EndDate.Value;
-				}
+			string[] res = DDMath.GetDifferencePresentation (StartDate.Value, EndDate.Value);
 
-			// Вычисление
-			TimeSpan diff = end - start;
-			double seconds = (((ulong)diff.Days * 24 + (ulong)diff.Hours) * 60 + (ulong)diff.Minutes) * 60 +
-				(ulong)diff.Seconds;
-
-			// Секунды, минуты, часы, дни, недели
-			ResultLabel2.Text = seconds.ToString ("#,#0") + RDLocale.RN;
-			ResultLabel3.Text = RDLocale.RN;
-			seconds /= 60.0;
-
-			ResultLabel2.Text += ((long)seconds).ToString ("#,#0") + RDLocale.RN;
-			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0##") + RDLocale.RN;
-			seconds /= 60.0;
-
-			ResultLabel2.Text += ((long)seconds).ToString ("#,#0") + RDLocale.RN;
-			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0####") + RDLocale.RN;
-			seconds /= 24.0;
-
-			ResultLabel2.Text += ((long)seconds).ToString ("#,#0") + RDLocale.RN;
-			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0#####") + RDLocale.RN;
-			seconds /= 7.0;
-
-			ResultLabel2.Text += ((long)seconds).ToString ("#,#0");
-			ResultLabel3.Text += (seconds - (long)seconds).ToString ("#.0######");
-			ResultLabel2.Text = ResultLabel2.Text.Replace ('\xA0', '’');
-
-			// Месяцы, годы
-			ulong startMonthOffset = (ulong)(((start.Day * 24 + start.Hour) * 60 + start.Minute) * 60 + start.Second);
-			ulong endMonthOffset = (ulong)(((end.Day * 24 + end.Hour) * 60 + end.Minute) * 60 + end.Second);
-
-			ulong months = (ulong)(end.Year - start.Year) * 12 + (ulong)(end.Month - start.Month);
-			if ((months > 0) && (endMonthOffset < startMonthOffset))
-				months--;
-
-			ResultLabel4.Text = months.ToString () +
-				" (" + (months / 12).ToString () + " × 12 + " + (months % 12).ToString () + ")" + RDLocale.RN;
-			ResultLabel4.Text += (months / 12).ToString ();
-
-			// Полный формат
-			ResultLabel1.Text = string.Format (RDLocale.GetText ("FullFormat"), diff.Days, diff.Hours,
-				diff.Minutes, diff.Seconds);
+			ResultLabel1.Text = res[0];
+			ResultLabel2.Text = res[1];
+			ResultLabel3.Text = res[2];
+			ResultLabel4.Text = res[3];
 			}
 
 		// Добавление значений
-		private DateTime AddTime (DateTime OldTime)
-			{
-			switch (AdditionalItem.SelectedIndex)
-				{
-				// Секунды
-				case 0:
-					return OldTime.AddSeconds ((double)AdditionalValue.Value);
-
-				// Минуты
-				case 1:
-					return OldTime.AddMinutes ((double)AdditionalValue.Value);
-
-				// Часы
-				case 2:
-					return OldTime.AddHours ((double)AdditionalValue.Value);
-
-				// Дни
-				case 3:
-					return OldTime.AddDays ((double)AdditionalValue.Value);
-
-				// Недели
-				case 4:
-					return OldTime.AddDays ((double)AdditionalValue.Value * 7.0);
-
-				default:
-					return OldTime;
-				}
-			}
-
 		private void StartDateAdd_Click (object sender, EventArgs e)
 			{
 			DateTimePicker field = (((Button)sender).Name == "StartDateAdd") ? StartDate : EndDate;
-			DateTime newTime = AddTime (field.Value);
+			DateTime newTime = DDMath.AddTime (field.Value, (int)AdditionalValue.Value,
+				(DDIncrements)AdditionalItem.SelectedIndex);
 
 			if ((newTime < field.MinDate) || (newTime > field.MaxDate))
 				{
-				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "DateTruncated");
+				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "DateTruncated", 750);
 
 				if (newTime < StartDate.MinDate)
 					field.Value = field.MinDate;
