@@ -143,11 +143,11 @@ Full years:</value>
     <value>{0:D} d. {1:D} h. {2:D} m. {3:D} s.</value>
   </data>
   <data name="AdditionalItems" xml:space="preserve">
-    <value>seconds
-minutes
-hours
-days
-weeks</value>
+    <value>1 second
+1 minute
+1 hour
+1 day
+1 week</value>
   </data>
   <data name="DateTruncated" xml:space="preserve">
     <value>Date / time value has been truncated</value>

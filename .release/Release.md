@@ -1,5 +1,5 @@
-_Changes for v 3.6_:
+_Changes for v 3.7_:
+- The user interface has been simplified;
+- Added the ability to remember the increment type;
 - Implemented the Android version;
-- Implemented the ability to save and restore the entered date values;
-- Current updates have been applied;
-- The new identity has been applied
+- Implemented the ability to save and restore the entered date values

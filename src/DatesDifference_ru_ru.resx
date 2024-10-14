@@ -143,11 +143,11 @@
     <value>{0:D} д. {1:D} ч. {2:D} м. {3:D} с.</value>
   </data>
   <data name="AdditionalItems" xml:space="preserve">
-    <value>секунд
-минут
-часов
-дней
-недель</value>
+    <value>1 секунда
+1 минута
+1 час
+1 день
+1 неделя</value>
   </data>
   <data name="DateTruncated" xml:space="preserve">
     <value>Значение даты / времени было усечено</value>

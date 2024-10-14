@@ -28,8 +28,6 @@ namespace RD_AAOW
 				LanguageCombo.SelectedIndex = 0;
 				}
 
-			/*DateNow_Click (StartDateNow, null);
-			DateNow_Click (EndDateNow, null);*/
 			StartDate.Value = DDMath.FirstSavedDate;
 			EndDate.Value = DDMath.SecondSavedDate;
 			}
@@ -45,10 +43,10 @@ namespace RD_AAOW
 			BExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
 			AboutButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout);
 
-			StartDateAdd.Text = EndDateAdd.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Add);
-			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");
+			/*StartDateAdd.Text = EndDateAdd.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Add);
+			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");*/
 
-			int currentItem = (AdditionalItem.SelectedIndex < 0) ? (int)DDIncrements.Days :
+			int currentItem = (AdditionalItem.SelectedIndex < 0) ? (int)DDMath.IncrementType :
 				AdditionalItem.SelectedIndex;
 			AdditionalItem.Items.Clear ();
 			AdditionalItem.Items.AddRange (DDMath.IncrementNames);
@@ -73,6 +71,8 @@ namespace RD_AAOW
 			{
 			DDMath.FirstSavedDate = StartDate.Value;
 			DDMath.SecondSavedDate = EndDate.Value;
+			DDMath.IncrementType = (DDIncrements)AdditionalItem.SelectedIndex;
+
 			RDGenerics.SaveWindowDimensions (this);
 			}
 
@@ -93,19 +93,25 @@ namespace RD_AAOW
 		// Вычисление
 		private void Date_ValueChanged (object sender, EventArgs e)
 			{
-			string[] res = DDMath.GetDifferencePresentation (StartDate.Value, EndDate.Value);
+			/*string[] res = DDMath.GetDifferencePresentation (StartDate.Value, EndDate.Value);
 
 			ResultLabel1.Text = res[0];
 			ResultLabel2.Text = res[1];
 			ResultLabel3.Text = res[2];
-			ResultLabel4.Text = res[3];
+			ResultLabel4.Text = res[3];*/
+			ResultLabel1.Text = DDMath.GetDifferencePresentationV37 (StartDate.Value, EndDate.Value);
 			}
 
 		// Добавление значений
 		private void StartDateAdd_Click (object sender, EventArgs e)
 			{
-			DateTimePicker field = (((Button)sender).Name == "StartDateAdd") ? StartDate : EndDate;
-			DateTime newTime = DDMath.AddTime (field.Value, (int)AdditionalValue.Value,
+			string name = ((Button)sender).Name;
+			bool start = name.Contains ("Start");
+			bool add = name.Contains ("Add");
+
+			/*DateTimePicker field = (((Button)sender).Name == "StartDateAdd") ? StartDate : EndDate;*/
+			DateTimePicker field = start ? StartDate : EndDate;
+			DateTime newTime = DDMath.AddTime (field.Value, add ? 1 : -1,
 				(DDIncrements)AdditionalItem.SelectedIndex);
 
 			if ((newTime < field.MinDate) || (newTime > field.MaxDate))

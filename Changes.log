@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 3.7:
+• The user interface has been simplified;
+• Added the ability to remember the increment type
+
 Version 3.6:
 • Implemented the ability to save and restore the entered date values;
 • Implemented the Android version
