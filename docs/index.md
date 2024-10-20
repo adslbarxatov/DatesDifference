@@ -7,7 +7,7 @@
 
 - [General information](#general-information)
 - [Download links](https://adslbarxatov.github.io/DPArray#dates-difference)
-- [Русская версия](https://adslbarxatov.github.io/DatesDifference/ru)
+- [Версия на русском языке](https://adslbarxatov.github.io/DatesDifference/ru)
 
 ---
 
