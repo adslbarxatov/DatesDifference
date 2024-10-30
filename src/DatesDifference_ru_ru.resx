@@ -152,4 +152,7 @@
   <data name="DateTruncated" xml:space="preserve">
     <value>Значение даты / времени было усечено</value>
   </data>
+  <data name="DifferenceResultFmt" xml:space="preserve">
+    <value>Разница между {0:S} и {1:S}:</value>
+  </data>
 </root>

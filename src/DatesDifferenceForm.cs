@@ -43,9 +43,6 @@ namespace RD_AAOW
 			BExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
 			AboutButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout);
 
-			/*StartDateAdd.Text = EndDateAdd.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Add);
-			EndDateAdd.Text = EndDateAdd.Text.Replace ("&", "").Insert (2, "&");*/
-
 			int currentItem = (AdditionalItem.SelectedIndex < 0) ? (int)DDMath.IncrementType :
 				AdditionalItem.SelectedIndex;
 			AdditionalItem.Items.Clear ();
@@ -93,12 +90,6 @@ namespace RD_AAOW
 		// Вычисление
 		private void Date_ValueChanged (object sender, EventArgs e)
 			{
-			/*string[] res = DDMath.GetDifferencePresentation (StartDate.Value, EndDate.Value);
-
-			ResultLabel1.Text = res[0];
-			ResultLabel2.Text = res[1];
-			ResultLabel3.Text = res[2];
-			ResultLabel4.Text = res[3];*/
 			ResultLabel1.Text = DDMath.GetDifferencePresentationV37 (StartDate.Value, EndDate.Value);
 			}
 
@@ -109,7 +100,6 @@ namespace RD_AAOW
 			bool start = name.Contains ("Start");
 			bool add = name.Contains ("Add");
 
-			/*DateTimePicker field = (((Button)sender).Name == "StartDateAdd") ? StartDate : EndDate;*/
 			DateTimePicker field = start ? StartDate : EndDate;
 			DateTime newTime = DDMath.AddTime (field.Value, add ? 1 : -1,
 				(DDIncrements)AdditionalItem.SelectedIndex);
@@ -127,6 +117,13 @@ namespace RD_AAOW
 				}
 
 			field.Value = newTime;
+			}
+
+		// Копирование результата
+		private void Result_Click (object sender, EventArgs e)
+			{
+			RDGenerics.SendToClipboard (DDMath.BuildResult (StartDate.Value, EndDate.Value,
+				LinesLabel.Text, ResultLabel1.Text), true);
 			}
 		}
 	}

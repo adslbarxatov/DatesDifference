@@ -158,4 +158,10 @@ Full years:</value>
   <data name="SecondDateLabel" xml:space="preserve">
     <value>Second date:</value>
   </data>
+  <data name="DifferenceResultFmt" xml:space="preserve">
+    <value>The difference between {0:S} and {1:S} is:</value>
+  </data>
+  <data name="CopyResultButton" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
 </root>

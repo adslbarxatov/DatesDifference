@@ -1,5 +1,5 @@
 # Dates difference: user guide
-> **ƒ** &nbsp;RD AAOW FDL; 12.08.2024; 1:00
+> **ƒ** &nbsp;RD AAOW FDL; 31.10.2024; 1:27
 
 
 
@@ -22,3 +22,5 @@ This tool evaluates the difference in dates. It allows you to display the differ
 - full months *(with fractional part)*
 - full years *(with fractional part)*
 - complete format: `DDD:HH:MM:SS`
+
+You can click the result to copy it to clipboard

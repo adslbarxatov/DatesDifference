@@ -48,7 +48,11 @@
 			<BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" 
 				WidthRequest="200" Color="#505050" Margin="6" />
 
-			<Button x:Name="MenuButton" />
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Button x:Name="CopyResultButton" VerticalOptions="Center" />
+				<Label Text=" | " VerticalOptions="Center" />
+				<Button x:Name="MenuButton" VerticalOptions="Center" />
+			</StackLayout>
 
 		</StackLayout>
 	</ScrollView>

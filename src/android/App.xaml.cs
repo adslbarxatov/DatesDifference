@@ -14,12 +14,11 @@ namespace RD_AAOW
 		// Прочие параметры
 		private RDAppStartupFlags flags;
 		private List<string> incrementTypesNames = new List<string> ();
-		/*private DDIncrements incrementType = DDIncrements.Days;*/
 
 		// Цветовая схема
 		private readonly Color
-			solutionMasterBackColor = Color.FromArgb ("#ffe7ff"),
-			solutionFieldBackColor = Color.FromArgb ("#ffdeff"),
+			solutionMasterBackColor = Color.FromArgb ("#e7e7ff"),
+			solutionFieldBackColor = Color.FromArgb ("#dedeff"),
 
 			aboutMasterBackColor = Color.FromArgb ("#F0FFF0"),
 			aboutFieldBackColor = Color.FromArgb ("#D0FFD0");
@@ -31,8 +30,7 @@ namespace RD_AAOW
 		private ContentPage solutionPage, aboutPage;
 
 		private Label aboutFontSizeField;
-		/*private Label[] resultLabels = new Label[4];*/
-		private Label resultLabel;
+		private Label resultLabel, resultNames;
 
 		private Button incrementTypeButton, languageButton;
 		private List<Button> incrementButtons = new List<Button> ();
@@ -114,25 +112,12 @@ namespace RD_AAOW
 			AndroidSupport.ApplyLabelSettings (solutionPage, "OutputLabel",
 				RDLocale.GetText ("OutputLabel"), RDLabelTypes.HeaderLeft);
 
-			Label l1 = AndroidSupport.ApplyLabelSettings (solutionPage, "ResultNamesLabel",
+			resultNames = AndroidSupport.ApplyLabelSettings (solutionPage, "ResultNamesLabel",
 				RDLocale.GetText ("ResultNamesLabel").Replace ("\r", ""), RDLabelTypes.DefaultLeft);
-			l1.FontAttributes = FontAttributes.Bold;
-			l1.FontFamily = AndroidSupport.MonospaceFont;
-			l1.HorizontalTextAlignment = TextAlignment.End;
-			/*l1.Margin = new Thickness (0);
-			l1.Padding = Thickness.Zero;*/
+			resultNames.FontAttributes = FontAttributes.Bold;
+			resultNames.FontFamily = AndroidSupport.MonospaceFont;
+			resultNames.HorizontalTextAlignment = TextAlignment.End;
 
-			/*for (int i = 0; i < resultLabels.Length; i++)
-				{
-				resultLabels[i] = AndroidSupport.ApplyLabelSettings (solutionPage, "ResultLabel" +
-					(i + 1).ToString (), " ", RDLabelTypes.DefaultLeft);
-				resultLabels[i].FontFamily = l1.FontFamily;
-				resultLabels[i].Margin = l1.Margin;
-				resultLabels[i].Padding = l1.Padding;
-
-				if (i == 1)
-					resultLabels[i].HorizontalTextAlignment = TextAlignment.End;
-				}*/
 			resultLabel = AndroidSupport.ApplyLabelSettings (solutionPage, "ResultLabel",
 				" ", RDLabelTypes.DefaultLeft);
 			resultLabel.FontFamily = AndroidSupport.MonospaceFont;
@@ -140,6 +125,8 @@ namespace RD_AAOW
 			// Вызов меню
 			AndroidSupport.ApplyButtonSettings (solutionPage, "MenuButton",
 				RDDefaultButtons.Menu, solutionFieldBackColor, AboutButton_Clicked);
+			AndroidSupport.ApplyButtonSettings (solutionPage, "CopyResultButton",
+				RDLocale.GetText ("CopyResultButton"), solutionFieldBackColor, CopyResult_Clicked, false);
 
 			// Загрузка сохранённых значений
 			FirstDateFull = DDMath.FirstSavedDate;
@@ -405,6 +392,13 @@ namespace RD_AAOW
 		private void AboutButton_Clicked (object sender, EventArgs e)
 			{
 			AndroidSupport.SetCurrentPage (aboutPage, aboutMasterBackColor);
+			}
+
+		// Копирование результата
+		private void CopyResult_Clicked (object sender, EventArgs e)
+			{
+			RDGenerics.SendToClipboard (DDMath.BuildResult (FirstDateFull, SecondDateFull,
+				resultNames.Text, resultLabel.Text), true);
 			}
 
 		#endregion

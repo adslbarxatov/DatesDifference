@@ -152,4 +152,7 @@ Full years:</value>
   <data name="DateTruncated" xml:space="preserve">
     <value>Date / time value has been truncated</value>
   </data>
+  <data name="DifferenceResultFmt" xml:space="preserve">
+    <value>The difference between {0:S} and {1:S} is:</value>
+  </data>
 </root>
