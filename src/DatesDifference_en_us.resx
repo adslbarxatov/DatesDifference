@@ -155,4 +155,7 @@ Full years:</value>
   <data name="DifferenceResultFmt" xml:space="preserve">
     <value>The difference between {0:S} and {1:S} is:</value>
   </data>
+  <data name="DatesDifferenceForm_CopyResultButton" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
 </root>

@@ -90,7 +90,7 @@ namespace RD_AAOW
 		// Вычисление
 		private void Date_ValueChanged (object sender, EventArgs e)
 			{
-			ResultLabel1.Text = DDMath.GetDifferencePresentationV37 (StartDate.Value, EndDate.Value);
+			ResultLabel.Text = DDMath.GetDifferencePresentation (StartDate.Value, EndDate.Value);
 			}
 
 		// Добавление значений
@@ -123,7 +123,7 @@ namespace RD_AAOW
 		private void Result_Click (object sender, EventArgs e)
 			{
 			RDGenerics.SendToClipboard (DDMath.BuildResult (StartDate.Value, EndDate.Value,
-				LinesLabel.Text, ResultLabel1.Text), true);
+				LinesLabel.Text, ResultLabel.Text), true);
 			}
 		}
 	}

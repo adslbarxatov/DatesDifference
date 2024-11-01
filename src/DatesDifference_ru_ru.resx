@@ -155,4 +155,7 @@
   <data name="DifferenceResultFmt" xml:space="preserve">
     <value>Разница между {0:S} и {1:S}:</value>
   </data>
+  <data name="DatesDifferenceForm_CopyResultButton" xml:space="preserve">
+    <value>Скопировать в буфер обмена</value>
+  </data>
 </root>
