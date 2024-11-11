@@ -236,8 +236,6 @@ namespace RD_AAOW
 		protected override void OnSleep ()
 			{
 			// Сохранение значений
-			/*DDMath.FirstSavedDate = firstDate.Date .Add (firstTime.Time);
-			DDMath.SecondSavedDate = secondDate.Date .Add (secondTime.Time);*/
 			DDMath.FirstSavedDate = FirstDateFull;
 			DDMath.SecondSavedDate = SecondDateFull;
 			}
@@ -317,11 +315,7 @@ namespace RD_AAOW
 				return;
 
 			// Обновление состояния
-			/*string[] res = DDMath.GetDifferencePresentation (firstDate.Date. Add (firstTime.Time),
-				secondDate.Date. Add (secondTime.Time));
-			for (int i = 0; i < resultLabels.Length; i++)
-				resultLabels[i].Text = res[i].Replace ("\r", "");*/
-			resultLabel.Text = DDMath.GetDifferencePresentationV37 (FirstDateFull, SecondDateFull);
+			resultLabel.Text = DDMath.GetDifferencePresentation (FirstDateFull, SecondDateFull);
 			}
 
 		// Приращение даты
@@ -342,10 +336,6 @@ namespace RD_AAOW
 				}
 
 			DateTime value;
-			/*if (idx < 2)
-				value = DDMath.AddTime (firstDate.Date. Add (firstTime.Time), increment, incrementType);
-			else
-				value = DDMath.AddTime (secondDate.Date. Add (secondTime.Time), increment, incrementType);*/
 			if (idx < 2)
 				value = DDMath.AddTime (FirstDateFull, increment, DDMath.IncrementType);
 			else

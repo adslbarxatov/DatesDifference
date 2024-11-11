@@ -1,5 +1,5 @@
-_Changes for v 3.7.3_:
+_Changes for v 3.7.4_:
+- The “App about” interface has been updated;
+- `Android`: MAUI support packages have been updated;
 - The result is now available for copying;
-- `Android`: changed the color of app background;
-- The user interface has been simplified;
-- Added the ability to remember the increment type
+- The user interface has been simplified
