@@ -1,5 +1,4 @@
-_Changes for v 3.7.4_:
-- The “App about” interface has been updated;
-- `Android`: MAUI support packages have been updated;
-- The result is now available for copying;
-- The user interface has been simplified
+_Changes for v 3.7.6_:
+- Access and appearance of the Lab Policy have been updated;
+- `Android`: app target API has been upgraded to 35;
+- `Android`: MAUI support packages have been updated
