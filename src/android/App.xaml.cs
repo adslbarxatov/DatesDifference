@@ -50,82 +50,82 @@ namespace RD_AAOW
 			{
 			// Инициализация
 			InitializeComponent ();
-			flags = AndroidSupport.GetAppStartupFlags (RDAppStartupFlags.DisableXPUN);
+			flags = RDGenerics.GetAppStartupFlags (RDAppStartupFlags.DisableXPUN);
 
 			// Общая конструкция страниц приложения
 			MainPage = new MasterPage ();
 
-			solutionPage = AndroidSupport.ApplyPageSettings (new SolutionPage (), "SolutionPage",
+			solutionPage = RDInterface.ApplyPageSettings (new SolutionPage (), "SolutionPage",
 				RDLocale.GetText ("SolutionPage"), solutionMasterBackColor);
-			aboutPage = AndroidSupport.ApplyPageSettings (new AboutPage (), "AboutPage",
+			aboutPage = RDInterface.ApplyPageSettings (new AboutPage (), "AboutPage",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout),
 				aboutMasterBackColor);
 
-			AndroidSupport.SetMasterPage (MainPage, solutionPage, solutionMasterBackColor);
+			RDInterface.SetMasterPage (MainPage, solutionPage, solutionMasterBackColor);
 
 			#region Основная страница
 
 			// Поля дат
-			AndroidSupport.ApplyLabelSettings (solutionPage, "InputLabel",
+			RDInterface.ApplyLabelSettings (solutionPage, "InputLabel",
 				RDLocale.GetText ("InputLabel"), RDLabelTypes.HeaderLeft);
 
-			AndroidSupport.ApplyLabelSettings (solutionPage, "FirstDateLabel",
+			RDInterface.ApplyLabelSettings (solutionPage, "FirstDateLabel",
 				RDLocale.GetText ("FirstDateLabel"), RDLabelTypes.DefaultLeft);
-			firstDate = AndroidSupport.ApplyDatePickerSettings (solutionPage, "FirstDatePicker",
+			firstDate = RDInterface.ApplyDatePickerSettings (solutionPage, "FirstDatePicker",
 				solutionFieldBackColor, DateSelectionMethod);
-			firstTime = AndroidSupport.ApplyTimePickerSettings (solutionPage, "FirstTimePicker",
+			firstTime = RDInterface.ApplyTimePickerSettings (solutionPage, "FirstTimePicker",
 				solutionFieldBackColor, DateSelectionMethod);
-			incrementButtons.Add (AndroidSupport.ApplyButtonSettings (solutionPage, "FirstDateIncrement",
+			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateIncrement",
 				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod));
-			incrementButtons.Add (AndroidSupport.ApplyButtonSettings (solutionPage, "FirstDateDecrement",
+			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateDecrement",
 				RDDefaultButtons.Decrease, solutionFieldBackColor, DateIncrementMethod));
 
-			AndroidSupport.ApplyLabelSettings (solutionPage, "SecondDateLabel",
+			RDInterface.ApplyLabelSettings (solutionPage, "SecondDateLabel",
 				RDLocale.GetText ("SecondDateLabel"), RDLabelTypes.DefaultLeft);
-			secondDate = AndroidSupport.ApplyDatePickerSettings (solutionPage, "SecondDatePicker",
+			secondDate = RDInterface.ApplyDatePickerSettings (solutionPage, "SecondDatePicker",
 				solutionFieldBackColor, DateSelectionMethod);
-			secondTime = AndroidSupport.ApplyTimePickerSettings (solutionPage, "SecondTimePicker",
+			secondTime = RDInterface.ApplyTimePickerSettings (solutionPage, "SecondTimePicker",
 				solutionFieldBackColor, DateSelectionMethod);
-			incrementButtons.Add (AndroidSupport.ApplyButtonSettings (solutionPage, "SecondDateIncrement",
+			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateIncrement",
 				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod));
-			incrementButtons.Add (AndroidSupport.ApplyButtonSettings (solutionPage, "SecondDateDecrement",
+			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateDecrement",
 				RDDefaultButtons.Decrease, solutionFieldBackColor, DateIncrementMethod));
 
-			incrementButtons.Add (AndroidSupport.ApplyButtonSettings (solutionPage, "FirstDateNow",
+			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateNow",
 				RDDefaultButtons.Create, solutionFieldBackColor, DateIncrementMethod));
-			incrementButtons.Add (AndroidSupport.ApplyButtonSettings (solutionPage, "SecondDateNow",
+			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateNow",
 				RDDefaultButtons.Create, solutionFieldBackColor, DateIncrementMethod));
 
 			firstDate.MinimumDate = secondDate.MinimumDate = minimumDate = new DateTime (1900, 1, 1, 0, 0, 0);
 			firstDate.MaximumDate = secondDate.MaximumDate = maximumDate = new DateTime (2100, 1, 1, 0, 0, 0);
 
 			// Поле типа инкремента
-			AndroidSupport.ApplyLabelSettings (solutionPage, "IncrementLabel",
+			RDInterface.ApplyLabelSettings (solutionPage, "IncrementLabel",
 				RDLocale.GetText ("IncrementLabel"), RDLabelTypes.DefaultLeft);
 			incrementTypesNames.AddRange (DDMath.IncrementNames);
-			incrementTypeButton = AndroidSupport.ApplyButtonSettings (solutionPage, "IncrementButton",
+			incrementTypeButton = RDInterface.ApplyButtonSettings (solutionPage, "IncrementButton",
 				" ", solutionFieldBackColor, SelectIncrementMethod, false);
 
 			SelectIncrementMethod (null, null);
 
 			// Поля результатов
-			AndroidSupport.ApplyLabelSettings (solutionPage, "OutputLabel",
+			RDInterface.ApplyLabelSettings (solutionPage, "OutputLabel",
 				RDLocale.GetText ("OutputLabel"), RDLabelTypes.HeaderLeft);
 
-			resultNames = AndroidSupport.ApplyLabelSettings (solutionPage, "ResultNamesLabel",
+			resultNames = RDInterface.ApplyLabelSettings (solutionPage, "ResultNamesLabel",
 				RDLocale.GetText ("ResultNamesLabel").Replace ("\r", ""), RDLabelTypes.DefaultLeft);
 			resultNames.FontAttributes = FontAttributes.Bold;
-			resultNames.FontFamily = AndroidSupport.MonospaceFont;
+			resultNames.FontFamily = RDGenerics.MonospaceFont;
 			resultNames.HorizontalTextAlignment = TextAlignment.End;
 
-			resultLabel = AndroidSupport.ApplyLabelSettings (solutionPage, "ResultLabel",
+			resultLabel = RDInterface.ApplyLabelSettings (solutionPage, "ResultLabel",
 				" ", RDLabelTypes.DefaultLeft);
-			resultLabel.FontFamily = AndroidSupport.MonospaceFont;
+			resultLabel.FontFamily = RDGenerics.MonospaceFont;
 
 			// Вызов меню
-			AndroidSupport.ApplyButtonSettings (solutionPage, "MenuButton",
+			RDInterface.ApplyButtonSettings (solutionPage, "MenuButton",
 				RDDefaultButtons.Menu, solutionFieldBackColor, AboutButton_Clicked);
-			AndroidSupport.ApplyButtonSettings (solutionPage, "CopyResultButton",
+			RDInterface.ApplyButtonSettings (solutionPage, "CopyResultButton",
 				RDLocale.GetText ("CopyResultButton"), solutionFieldBackColor, CopyResult_Clicked, false);
 
 			// Загрузка сохранённых значений
@@ -139,45 +139,45 @@ namespace RD_AAOW
 
 			#region Страница "О программе"
 
-			AndroidSupport.ApplyLabelSettings (aboutPage, "AboutLabel",
+			RDInterface.ApplyLabelSettings (aboutPage, "AboutLabel",
 				RDGenerics.AppAboutLabelText, RDLabelTypes.AppAbout);
 
-			AndroidSupport.ApplyButtonSettings (aboutPage, "ManualsButton",
+			RDInterface.ApplyButtonSettings (aboutPage, "ManualsButton",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_ReferenceMaterials),
 				aboutFieldBackColor, ReferenceButton_Click, false);
-			AndroidSupport.ApplyButtonSettings (aboutPage, "HelpButton",
+			RDInterface.ApplyButtonSettings (aboutPage, "HelpButton",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_HelpSupport),
 				aboutFieldBackColor, HelpButton_Click, false);
-			AndroidSupport.ApplyLabelSettings (aboutPage, "GenericSettingsLabel",
+			RDInterface.ApplyLabelSettings (aboutPage, "GenericSettingsLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_GenericSettings),
 				RDLabelTypes.HeaderLeft);
 
-			AndroidSupport.ApplyLabelSettings (aboutPage, "RestartTipLabel",
+			RDInterface.ApplyLabelSettings (aboutPage, "RestartTipLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Message_RestartRequired),
 				RDLabelTypes.TipCenter);
 
-			AndroidSupport.ApplyLabelSettings (aboutPage, "LanguageLabel",
+			RDInterface.ApplyLabelSettings (aboutPage, "LanguageLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguage),
 				RDLabelTypes.DefaultLeft);
-			languageButton = AndroidSupport.ApplyButtonSettings (aboutPage, "LanguageSelector",
+			languageButton = RDInterface.ApplyButtonSettings (aboutPage, "LanguageSelector",
 				RDLocale.LanguagesNames[(int)RDLocale.CurrentLanguage],
 				aboutFieldBackColor, SelectLanguage_Clicked, false);
 
-			AndroidSupport.ApplyLabelSettings (aboutPage, "FontSizeLabel",
+			RDInterface.ApplyLabelSettings (aboutPage, "FontSizeLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceFontSize),
 				RDLabelTypes.DefaultLeft);
-			AndroidSupport.ApplyButtonSettings (aboutPage, "FontSizeInc",
+			RDInterface.ApplyButtonSettings (aboutPage, "FontSizeInc",
 				RDDefaultButtons.Increase, aboutFieldBackColor, FontSizeButton_Clicked);
-			AndroidSupport.ApplyButtonSettings (aboutPage, "FontSizeDec",
+			RDInterface.ApplyButtonSettings (aboutPage, "FontSizeDec",
 				RDDefaultButtons.Decrease, aboutFieldBackColor, FontSizeButton_Clicked);
-			aboutFontSizeField = AndroidSupport.ApplyLabelSettings (aboutPage, "FontSizeField",
+			aboutFontSizeField = RDInterface.ApplyLabelSettings (aboutPage, "FontSizeField",
 				" ", RDLabelTypes.DefaultCenter);
 
-			AndroidSupport.ApplyLabelSettings (aboutPage, "HelpHeaderLabel",
+			RDInterface.ApplyLabelSettings (aboutPage, "HelpHeaderLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout),
 				RDLabelTypes.HeaderLeft);
-			Label htl = AndroidSupport.ApplyLabelSettings (aboutPage, "HelpTextLabel",
-				AndroidSupport.GetAppHelpText (), RDLabelTypes.SmallLeft);
+			Label htl = RDInterface.ApplyLabelSettings (aboutPage, "HelpTextLabel",
+				RDGenerics.GetAppHelpText (), RDLabelTypes.SmallLeft);
 			htl.TextType = TextType.Html;
 
 			FontSizeButton_Clicked (null, null);
@@ -220,13 +220,13 @@ namespace RD_AAOW
 			{
 			// Контроль XPUN
 			if (!flags.HasFlag (RDAppStartupFlags.DisableXPUN))
-				await AndroidSupport.XPUNLoop ();
+				await RDInterface.XPUNLoop ();
 
 			// Требование принятия Политики
 			if (TipsState.HasFlag (TipTypes.PolicyTip))
 				return;
 
-			await AndroidSupport.PolicyLoop ();
+			await RDInterface.PolicyLoop ();
 			TipsState |= TipTypes.PolicyTip;
 			}
 
@@ -274,18 +274,18 @@ namespace RD_AAOW
 		// Выбор языка приложения
 		private async void SelectLanguage_Clicked (object sender, EventArgs e)
 			{
-			languageButton.Text = await AndroidSupport.CallLanguageSelector ();
+			languageButton.Text = await RDInterface.CallLanguageSelector ();
 			}
 
 		// Вызов справочных материалов
 		private async void ReferenceButton_Click (object sender, EventArgs e)
 			{
-			await AndroidSupport.CallHelpMaterials (RDHelpMaterials.ReferenceMaterials);
+			await RDInterface.CallHelpMaterials (RDHelpMaterials.ReferenceMaterials);
 			}
 
 		private async void HelpButton_Click (object sender, EventArgs e)
 			{
-			await AndroidSupport.CallHelpMaterials (RDHelpMaterials.HelpAndSupport);
+			await RDInterface.CallHelpMaterials (RDHelpMaterials.HelpAndSupport);
 			}
 
 		// Изменение размера шрифта интерфейса
@@ -294,14 +294,14 @@ namespace RD_AAOW
 			if (sender != null)
 				{
 				Button b = (Button)sender;
-				if (AndroidSupport.IsNameDefault (b.Text, RDDefaultButtons.Increase))
-					AndroidSupport.MasterFontSize += 0.5;
-				else if (AndroidSupport.IsNameDefault (b.Text, RDDefaultButtons.Decrease))
-					AndroidSupport.MasterFontSize -= 0.5;
+				if (RDInterface.IsNameDefault (b.Text, RDDefaultButtons.Increase))
+					RDInterface.MasterFontSize += 0.5;
+				else if (RDInterface.IsNameDefault (b.Text, RDDefaultButtons.Decrease))
+					RDInterface.MasterFontSize -= 0.5;
 				}
 
-			aboutFontSizeField.Text = AndroidSupport.MasterFontSize.ToString ("F1");
-			aboutFontSizeField.FontSize = AndroidSupport.MasterFontSize;
+			aboutFontSizeField.Text = RDInterface.MasterFontSize.ToString ("F1");
+			aboutFontSizeField.FontSize = RDInterface.MasterFontSize;
 			}
 
 		#endregion
@@ -343,7 +343,7 @@ namespace RD_AAOW
 
 			if ((value < minimumDate) || (value > maximumDate))
 				{
-				AndroidSupport.ShowBalloon (RDLocale.GetText ("DateTruncated"), true);
+				RDInterface.ShowBalloon (RDLocale.GetText ("DateTruncated"), true);
 
 				if (value < minimumDate)
 					value = minimumDate;
@@ -367,7 +367,7 @@ namespace RD_AAOW
 				}
 			else
 				{
-				res = await AndroidSupport.ShowList (RDLocale.GetText ("IncrementLabel"),
+				res = await RDInterface.ShowList (RDLocale.GetText ("IncrementLabel"),
 					RDLocale.GetDefaultText (RDLDefaultTexts.Button_Cancel), incrementTypesNames);
 				if (res < 0)
 					return;
@@ -381,7 +381,7 @@ namespace RD_AAOW
 		// Метод открывает страницу О программе
 		private void AboutButton_Clicked (object sender, EventArgs e)
 			{
-			AndroidSupport.SetCurrentPage (aboutPage, aboutMasterBackColor);
+			RDInterface.SetCurrentPage (aboutPage, aboutMasterBackColor);
 			}
 
 		// Копирование результата

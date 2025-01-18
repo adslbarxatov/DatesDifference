@@ -1,4 +1,3 @@
-_Changes for v 3.7.6_:
-- Access and appearance of the Lab Policy have been updated;
-- `Android`: app target API has been upgraded to 35;
-- `Android`: MAUI support packages have been updated
+_Changes for v 3.7.7_:
+- `Android`: MAUI support packages have been updated;
+- Access and appearance of the Lab Policy have been updated

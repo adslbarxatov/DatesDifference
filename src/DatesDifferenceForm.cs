@@ -55,7 +55,7 @@ namespace RD_AAOW
 		// Запрос справки
 		private void AboutButton_Clicked (object sender, EventArgs e)
 			{
-			RDGenerics.ShowAbout (false);
+			RDInterface.ShowAbout (false);
 			}
 
 		// Закрытие окна
@@ -106,7 +106,7 @@ namespace RD_AAOW
 
 			if ((newTime < field.MinDate) || (newTime > field.MaxDate))
 				{
-				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "DateTruncated", 750);
+				RDInterface.LocalizedMessageBox (RDMessageTypes.Warning_Center, "DateTruncated", 750);
 
 				if (newTime < StartDate.MinDate)
 					field.Value = field.MinDate;
