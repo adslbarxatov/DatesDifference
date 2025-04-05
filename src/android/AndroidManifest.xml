@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.RD_AAOW.DatesDifference"
-	android:installLocation="internalOnly" android:versionCode="600308" android:versionName="3.7.8">
+	android:installLocation="internalOnly" android:versionCode="600309" android:versionName="3.7.9">
 
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="35" />
 
-	<application android:label="Dates difference" android:icon="@drawable/icon" />
+	<application android:label="Dates difference" android:icon="@drawable/icon"
+		android:windowOptOutEdgeToEdgeEnforcement="true" />
 
 	<queries>
 		<intent>
