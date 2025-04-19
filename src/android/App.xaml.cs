@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace RD_AAOW
@@ -13,15 +12,13 @@ namespace RD_AAOW
 
 		// Прочие параметры
 		private RDAppStartupFlags flags;
-		private List<string> incrementTypesNames = new List<string> ();
+		private List<string> incrementTypesNames = [];
 
 		// Цветовая схема
-		private readonly Color
-			solutionMasterBackColor = Color.FromArgb ("#e7e7ff"),
-			solutionFieldBackColor = Color.FromArgb ("#dedeff"),
-
-			aboutMasterBackColor = Color.FromArgb ("#F0FFF0"),
-			aboutFieldBackColor = Color.FromArgb ("#D0FFD0");
+		private Color solutionMasterBackColor = Color.FromArgb ("#e7e7ff");
+		private Color solutionFieldBackColor = Color.FromArgb ("#dedeff");
+		private Color aboutMasterBackColor = Color.FromArgb ("#F0FFF0");
+		private Color aboutFieldBackColor = Color.FromArgb ("#D0FFD0");
 
 		#endregion
 
@@ -33,7 +30,7 @@ namespace RD_AAOW
 		private Label resultLabel, resultNames;
 
 		private Button incrementTypeButton, languageButton;
-		private List<Button> incrementButtons = new List<Button> ();
+		private List<Button> incrementButtons = [];
 
 		private DatePicker firstDate, secondDate;
 		private TimePicker firstTime, secondTime;
@@ -50,10 +47,22 @@ namespace RD_AAOW
 			{
 			// Инициализация
 			InitializeComponent ();
+			}
+
+		// Замена определению MainPage = new MasterPage ()
+		protected override Window CreateWindow (IActivationState activationState)
+			{
+			return new Window (AppShell ());
+			}
+
+		// Инициализация страниц приложения
+		private Page AppShell ()
+			{
+			Page mainPage = new MasterPage ();
 			flags = RDGenerics.GetAppStartupFlags (RDAppStartupFlags.DisableXPUN);
 
 			// Общая конструкция страниц приложения
-			MainPage = new MasterPage ();
+			/*MainPage = new MasterPage ();*/
 
 			solutionPage = RDInterface.ApplyPageSettings (new SolutionPage (), "SolutionPage",
 				RDLocale.GetText ("SolutionPage"), solutionMasterBackColor);
@@ -61,7 +70,8 @@ namespace RD_AAOW
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout),
 				aboutMasterBackColor);
 
-			RDInterface.SetMasterPage (MainPage, solutionPage, solutionMasterBackColor);
+			/*RDInterface.SetMasterPage (MainPage, solutionPage, solutionMasterBackColor);*/
+			RDInterface.SetMasterPage (mainPage, solutionPage, solutionMasterBackColor);
 
 			#region Основная страница
 
@@ -186,6 +196,7 @@ namespace RD_AAOW
 
 			// Отображение подсказок первого старта
 			ShowStartupTips ();
+			return mainPage;
 			}
 
 		// Свойства-ретрансляторы
@@ -223,11 +234,11 @@ namespace RD_AAOW
 				await RDInterface.XPUNLoop ();
 
 			// Требование принятия Политики
-			if (TipsState.HasFlag (TipTypes.PolicyTip))
-				return;
+			/*if (TipsState.HasFlag (TipTypes.PolicyTip))
+				return;*/
 
 			await RDInterface.PolicyLoop ();
-			TipsState |= TipTypes.PolicyTip;
+			/*TipsState |= TipTypes.PolicyTip;*/
 			}
 
 		/// <summary>
@@ -240,7 +251,7 @@ namespace RD_AAOW
 			DDMath.SecondSavedDate = SecondDateFull;
 			}
 
-		/// <summary>
+		/*/// <summary>
 		/// Возвращает или задаёт состав флагов просмотра справочных сведений
 		/// </summary>
 		public static TipTypes TipsState
@@ -265,7 +276,7 @@ namespace RD_AAOW
 			/// Принятие Политики и первая подсказка
 			/// </summary>
 			PolicyTip = 0x0001,
-			}
+			}*/
 
 		#endregion
 

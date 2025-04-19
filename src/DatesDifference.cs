@@ -1,38 +1,86 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using RD_AAOW;
+using System.Reflection;
+using System.Resources;
+
+// Управление общими сведениями о сборке
+// ВИДИМЫЕ СТРОКИ
+[assembly: AssemblyTitle (ProgramDescription.AssemblyDescription)]
+[assembly: AssemblyCompany (RDGenerics.AssemblyCompany)]
+// НЕВИДИМЫЕ СТРОКИ
+[assembly: AssemblyDescription (ProgramDescription.AssemblyDescription)]
+[assembly: AssemblyProduct (ProgramDescription.AssemblyTitle)]
+[assembly: AssemblyCopyright (RDGenerics.AssemblyCopyright)]
+[assembly: AssemblyVersion (ProgramDescription.AssemblyVersion)]
 
 namespace RD_AAOW
 	{
 	/// <summary>
-	/// Класс описывает точку входа приложения
+	/// Класс, содержащий сведения о программе
 	/// </summary>
-	public static class DatesDifferenceProgram
+	public class ProgramDescription
 		{
 		/// <summary>
-		/// Главная точка входа для приложения
+		/// Название программы
 		/// </summary>
-		[STAThread]
-		public static void Main ()
-			{
-			// Инициализация
-			Application.EnableVisualStyles ();
-			Application.SetCompatibleTextRenderingDefault (false);
+		public const string AssemblyTitle = AssemblyMainName + " v 3.8";
 
-			// Язык интерфейса и контроль XPUN
-			if (!RDLocale.IsXPUNClassAcceptable)
-				return;
+		/// <summary>
+		/// Версия программы
+		/// </summary>
+		public const string AssemblyVersion = "3.8.0.0";
 
-			// Проверка запуска единственной копии
-			if (!RDGenerics.IsAppInstanceUnique (true))
-				return;
+		/// <summary>
+		/// Последнее обновление
+		/// </summary>
+		public const string AssemblyLastUpdate = "19.04.2025; 21:25";
 
-			// Отображение справки и запроса на принятие Политики
-			if (!RDInterface.AcceptEULA ())
-				return;
-			RDInterface.ShowAbout (true);
+		/// <summary>
+		/// Пояснение к программе
+		/// </summary>
+		public const string AssemblyDescription = "Tool for evaluating the difference in dates";
 
-			// Запуск
-			Application.Run (new DatesDifferenceForm ());
-			}
+		/// <summary>
+		/// Основное название сборки
+		/// </summary>
+		public const string AssemblyMainName = "DatesDifference";
+
+		/// <summary>
+		/// Видимое название сборки
+		/// </summary>
+		public const string AssemblyVisibleName = "• Dates difference •";
+
+		/// <summary>
+		/// Возвращает список менеджеров ресурсов для локализации приложения
+		/// </summary>
+		public readonly static ResourceManager[] AssemblyResources = [
+#if ANDROID
+			// Языковые ресурсы
+			RD_AAOW.DatesDifference_ru_ru.ResourceManager,
+			RD_AAOW.DatesDifference_en_us.ResourceManager,
+#else
+			DatesDifferenceResources.ResourceManager,
+
+			DatesDifference_ru_ru.ResourceManager,
+			DatesDifference_en_us.ResourceManager,
+#endif
+			];
+
+		/// <summary>
+		/// Возвращает набор ссылок на видеоматериалы по языкам
+		/// </summary>
+		public readonly static string[] AssemblyVideoLinks = [];
+
+		/// <summary>
+		/// Возвращает набор поддерживаемых языков
+		/// </summary>
+		public readonly static RDLanguages[] AssemblyLanguages = [
+			RDLanguages.ru_ru,
+			RDLanguages.en_us,
+			];
+
+		/// <summary>
+		/// Возвращает описание сопоставлений файлов для приложения
+		/// </summary>
+		public readonly static string[][] AssemblyAssociations = [];
 		}
 	}

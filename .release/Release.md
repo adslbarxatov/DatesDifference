@@ -1,3 +1,3 @@
-_Changes for v 3.7.9_:
-- Current updates have been applied;
+_Changes for v 3.8_:
+- `Windows`: the application has been migrated to `.NET 9.0` from `.NET Framework 4.8.1`;
 - `Android`: MAUI support packages have been updated
