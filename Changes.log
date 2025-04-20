@@ -1,7 +1,7 @@
 Dates difference: changes log
 
 Version 3.8:
-• Windows: the application has been migrated to .NET 9.0 from .NET Framework 4.8.1
+• Windows: the application has been migrated to .NET 9.0 from .NET Framework 4.8.1;
 • Android: MAUI support packages have been updated
 
 Version 3.7.9:
