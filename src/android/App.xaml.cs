@@ -62,15 +62,12 @@ namespace RD_AAOW
 			flags = RDGenerics.GetAppStartupFlags (RDAppStartupFlags.DisableXPUN);
 
 			// Общая конструкция страниц приложения
-			/*MainPage = new MasterPage ();*/
-
-			solutionPage = RDInterface.ApplyPageSettings (new SolutionPage (), "SolutionPage",
+			solutionPage = RDInterface.ApplyPageSettings (new SolutionPage (), /*"SolutionPage",*/
 				RDLocale.GetText ("SolutionPage"), solutionMasterBackColor);
-			aboutPage = RDInterface.ApplyPageSettings (new AboutPage (), "AboutPage",
+			aboutPage = RDInterface.ApplyPageSettings (new AboutPage (), /*"AboutPage",*/
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout),
 				aboutMasterBackColor);
 
-			/*RDInterface.SetMasterPage (MainPage, solutionPage, solutionMasterBackColor);*/
 			RDInterface.SetMasterPage (mainPage, solutionPage, solutionMasterBackColor);
 
 			#region Основная страница
@@ -234,11 +231,7 @@ namespace RD_AAOW
 				await RDInterface.XPUNLoop ();
 
 			// Требование принятия Политики
-			/*if (TipsState.HasFlag (TipTypes.PolicyTip))
-				return;*/
-
 			await RDInterface.PolicyLoop ();
-			/*TipsState |= TipTypes.PolicyTip;*/
 			}
 
 		/// <summary>
@@ -250,33 +243,6 @@ namespace RD_AAOW
 			DDMath.FirstSavedDate = FirstDateFull;
 			DDMath.SecondSavedDate = SecondDateFull;
 			}
-
-		/*/// <summary>
-		/// Возвращает или задаёт состав флагов просмотра справочных сведений
-		/// </summary>
-		public static TipTypes TipsState
-			{
-			get
-				{
-				return (TipTypes)RDGenerics.GetSettings (tipsStatePar, 0);
-				}
-			set
-				{
-				RDGenerics.SetSettings (tipsStatePar, (uint)value);
-				}
-			}
-		private const string tipsStatePar = "TipsState";
-
-		/// <summary>
-		/// Доступные типы уведомлений
-		/// </summary>
-		public enum TipTypes
-			{
-			/// <summary>
-			/// Принятие Политики и первая подсказка
-			/// </summary>
-			PolicyTip = 0x0001,
-			}*/
 
 		#endregion
 

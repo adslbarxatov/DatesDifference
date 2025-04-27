@@ -74,8 +74,6 @@ namespace RD_AAOW
 				(ulong)diff.Seconds;
 
 			// Секунды, минуты, часы, дни, недели
-			/*string[] resV37 = new string[] { "", "", "", "", "", "", "", "" };*/
-
 			List<List<string>> notAlignedFractions = [];
 			for (int i = 0; i < fractionsDividers.Length; i++)
 				{
