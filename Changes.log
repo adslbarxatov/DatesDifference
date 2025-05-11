@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 3.8.2:
+• Android: added support for landscape screen orientation;
+• Added support for new offline help provider
+
 Version 3.8.1:
 • Android: fix for MAUI interface defect that allows application to crash by pressing
   system Back button on the main page. Applicable, therefore, only to the main page

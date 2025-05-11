@@ -4,54 +4,72 @@
              x:Class="RD_AAOW.SolutionPage">
 
 	<!-- Раздел ввода значений -->
-	<ScrollView HorizontalOptions="Fill">
-		<StackLayout>
+	<ScrollView HorizontalOptions="Center">
+		<StackLayout x:Name="MasterLayout" HorizontalOptions="Center">
 
-			<Label x:Name="InputLabel" />
+			<StackLayout Orientation="Vertical" HorizontalOptions="Center">
 
-			<Label x:Name="FirstDateLabel" />
-			<StackLayout Orientation="Horizontal">
-				<DatePicker x:Name="FirstDatePicker" VerticalOptions="Center" />
-				<TimePicker x:Name="FirstTimePicker" VerticalOptions="Center" />
-				<Button x:Name="FirstDateIncrement" VerticalOptions="Center" />
-				<Button x:Name="FirstDateDecrement" VerticalOptions="Center" />
-				<Button x:Name="FirstDateNow" VerticalOptions="Center" />
+				<StackLayout Orientation="Vertical" HorizontalOptions="Center">
+					<Label x:Name="InputLabel" />
+					<Label x:Name="FirstDateLabel" />
+
+					<StackLayout Orientation="Horizontal">
+						<DatePicker x:Name="FirstDatePicker" VerticalOptions="Center" />
+						<TimePicker x:Name="FirstTimePicker" VerticalOptions="Center" />
+						<Label Text="   " />
+						<Button x:Name="FirstDateIncrement" VerticalOptions="Center" />
+						<Button x:Name="FirstDateDecrement" VerticalOptions="Center" />
+						<Button x:Name="FirstDateNow" VerticalOptions="Center" />
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout Orientation="Vertical" HorizontalOptions="Center">
+					<Label x:Name="SecondDateLabel" />
+
+					<StackLayout Orientation="Horizontal">
+						<DatePicker x:Name="SecondDatePicker" VerticalOptions="Center" />
+						<TimePicker x:Name="SecondTimePicker" VerticalOptions="Center" />
+						<Label Text="   " />
+						<Button x:Name="SecondDateIncrement" VerticalOptions="Center" />
+						<Button x:Name="SecondDateDecrement" VerticalOptions="Center" />
+						<Button x:Name="SecondDateNow" VerticalOptions="Center" />
+					</StackLayout>
+				</StackLayout>
+
+				<Label />
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+					<Label x:Name="IncrementLabel" VerticalOptions="Center" />
+					<Button x:Name="IncrementButton" VerticalOptions="Center" />
+				</StackLayout>
+
+				<BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" 
+					WidthRequest="200" Color="#505050" Margin="6" />
+
 			</StackLayout>
 
-			<Label x:Name="SecondDateLabel" />
-			<StackLayout Orientation="Horizontal">
-				<DatePicker x:Name="SecondDatePicker" VerticalOptions="Center" />
-				<TimePicker x:Name="SecondTimePicker" VerticalOptions="Center" />
-				<Button x:Name="SecondDateIncrement" VerticalOptions="Center" />
-				<Button x:Name="SecondDateDecrement" VerticalOptions="Center" />
-				<Button x:Name="SecondDateNow" VerticalOptions="Center" />
-			</StackLayout>
+			<Label WidthRequest="10" HeightRequest="10" HorizontalOptions="Center" />
 
-			<Label />
-			<StackLayout Orientation="Horizontal">
-				<Label x:Name="IncrementLabel" VerticalOptions="Center" />
-				<Button x:Name="IncrementButton" VerticalOptions="Center" />
-			</StackLayout>
+			<StackLayout Orientation="Vertical" HorizontalOptions="Center">
 
-			<BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" 
-				WidthRequest="200" Color="#505050" Margin="6" />
+				<StackLayout Orientation="Vertical" HorizontalOptions="Center">
+					<Label x:Name="OutputLabel" />
 
-			<Label />
-			<Label x:Name="OutputLabel" />
+					<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+						<Label x:Name="ResultNamesLabel" VerticalOptions="Center" />
+						<Label x:Name="ResultLabel" VerticalOptions="Center" />
+					</StackLayout>
+				</StackLayout>
 
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Label x:Name="ResultNamesLabel" VerticalOptions="Center" />
-				<Label x:Name="ResultLabel" VerticalOptions="Center" />
-			</StackLayout>
+				<Label />
+				<BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" 
+					WidthRequest="200" Color="#505050" Margin="6" />
 
-			<Label />
-			<BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" 
-				WidthRequest="200" Color="#505050" Margin="6" />
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+					<Button x:Name="CopyResultButton" VerticalOptions="Center" />
+					<Label Text=" | " VerticalOptions="Center" />
+					<Button x:Name="MenuButton" VerticalOptions="Center" />
+				</StackLayout>
 
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Button x:Name="CopyResultButton" VerticalOptions="Center" />
-				<Label Text=" | " VerticalOptions="Center" />
-				<Button x:Name="MenuButton" VerticalOptions="Center" />
 			</StackLayout>
 
 		</StackLayout>

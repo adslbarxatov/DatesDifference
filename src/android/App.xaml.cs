@@ -36,6 +36,8 @@ namespace RD_AAOW
 		private TimePicker firstTime, secondTime;
 		private DateTime minimumDate, maximumDate;
 
+		private StackLayout masterLayout;
+
 		#endregion
 
 		#region Запуск и настройка
@@ -62,9 +64,9 @@ namespace RD_AAOW
 			flags = RDGenerics.GetAppStartupFlags (RDAppStartupFlags.DisableXPUN);
 
 			// Общая конструкция страниц приложения
-			solutionPage = RDInterface.ApplyPageSettings (new SolutionPage (), /*"SolutionPage",*/
+			solutionPage = RDInterface.ApplyPageSettings (new SolutionPage (),
 				RDLocale.GetText ("SolutionPage"), solutionMasterBackColor);
-			aboutPage = RDInterface.ApplyPageSettings (new AboutPage (), /*"AboutPage",*/
+			aboutPage = RDInterface.ApplyPageSettings (new AboutPage (),
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout),
 				aboutMasterBackColor);
 
@@ -82,6 +84,7 @@ namespace RD_AAOW
 				solutionFieldBackColor, DateSelectionMethod);
 			firstTime = RDInterface.ApplyTimePickerSettings (solutionPage, "FirstTimePicker",
 				solutionFieldBackColor, DateSelectionMethod);
+			firstTime.Margin = Thickness.Zero;
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateIncrement",
 				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod));
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateDecrement",
@@ -93,6 +96,7 @@ namespace RD_AAOW
 				solutionFieldBackColor, DateSelectionMethod);
 			secondTime = RDInterface.ApplyTimePickerSettings (solutionPage, "SecondTimePicker",
 				solutionFieldBackColor, DateSelectionMethod);
+			secondTime.Margin = Thickness.Zero;
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateIncrement",
 				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod));
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateDecrement",
@@ -129,11 +133,16 @@ namespace RD_AAOW
 				" ", RDLabelTypes.DefaultLeft);
 			resultLabel.FontFamily = RDGenerics.MonospaceFont;
 
+			// Ориентация
+			masterLayout = (StackLayout)solutionPage.FindByName ("MasterLayout");
+			DeviceDisplay.Current.MainDisplayInfoChanged += Current_MainDisplayInfoChanged;
+
 			// Вызов меню
-			RDInterface.ApplyButtonSettings (solutionPage, "MenuButton",
+			Button mnu = RDInterface.ApplyButtonSettings (solutionPage, "MenuButton",
 				RDDefaultButtons.Menu, solutionFieldBackColor, AboutButton_Clicked);
-			RDInterface.ApplyButtonSettings (solutionPage, "CopyResultButton",
+			Button cpy = RDInterface.ApplyButtonSettings (solutionPage, "CopyResultButton",
 				RDLocale.GetText ("CopyResultButton"), solutionFieldBackColor, CopyResult_Clicked, false);
+			incrementTypeButton.HeightRequest = cpy.HeightRequest = mnu.HeightRequest;
 
 			// Загрузка сохранённых значений
 			FirstDateFull = DDMath.FirstSavedDate;
@@ -194,6 +203,26 @@ namespace RD_AAOW
 			// Отображение подсказок первого старта
 			ShowStartupTips ();
 			return mainPage;
+			}
+
+		// Изменение ориентации экрана
+		private async void Current_MainDisplayInfoChanged (object sender, DisplayInfoChangedEventArgs e)
+			{
+			await Task.Delay (500);
+			bool portrait = Windows[0].Width < Windows[0].Height;
+			masterLayout.Orientation = (portrait ? StackOrientation.Vertical : StackOrientation.Horizontal);
+			}
+
+		protected override void OnStart ()
+			{
+			Current_MainDisplayInfoChanged (null, null);
+			base.OnStart ();
+			}
+
+		protected override void OnResume ()
+			{
+			Current_MainDisplayInfoChanged (null, null);
+			base.OnResume ();
 			}
 
 		// Свойства-ретрансляторы
