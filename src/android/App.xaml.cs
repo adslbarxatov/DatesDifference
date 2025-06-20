@@ -133,7 +133,7 @@ namespace RD_AAOW
 				" ", RDLabelTypes.DefaultLeft);
 			resultLabel.FontFamily = RDGenerics.MonospaceFont;
 
-			// Ориентация
+			// Ориентация экрана
 			masterLayout = (StackLayout)solutionPage.FindByName ("MasterLayout");
 			DeviceDisplay.Current.MainDisplayInfoChanged += Current_MainDisplayInfoChanged;
 
