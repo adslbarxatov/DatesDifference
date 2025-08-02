@@ -106,7 +106,8 @@ namespace RD_AAOW
 
 			if ((newTime < field.MinDate) || (newTime > field.MaxDate))
 				{
-				RDInterface.LocalizedMessageBox (RDMessageTypes.Warning_Center, "DateTruncated", 750);
+				RDInterface.LocalizedMessageBox (RDMessageFlags.Warning | RDMessageFlags.CenterText,
+					"DateTruncated", 750);
 
 				if (newTime < StartDate.MinDate)
 					field.Value = field.MinDate;
