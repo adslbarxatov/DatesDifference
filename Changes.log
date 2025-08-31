@@ -1,12 +1,9 @@
 Dates difference: changes log
 
-Version 3.8.5:
+Version 3.8.6:
 • Android: MAUI support packages have been updated;
-• Windows: internal assemblies have been updated
-
-Version 3.8.4:
-• Android: MAUI support packages have been updated;
-• Windows: internal assemblies have been updated
+• Windows: internal assemblies have been updated;
+• XPUN / IOP update has been applied
 
 Version 3.8.3:
 • Android: MAUI support packages have been updated
