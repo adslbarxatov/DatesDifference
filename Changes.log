@@ -1,6 +1,8 @@
 Dates difference: changes log
 
-Version 3.8.7:
+Version 3.9:
+• Windows: app has been migrated to .NET 10;
+• Android: app has been targeted to API 36;
 • Internal assemblies have been updated
 
 Version 3.8.6:

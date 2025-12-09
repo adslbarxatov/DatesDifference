@@ -230,7 +230,7 @@ namespace RD_AAOW
 			{
 			get
 				{
-				return firstDate.Date.Add (firstTime.Time);
+				return firstDate.Date.Value.Add (firstTime.Time.Value);
 				}
 			set
 				{
@@ -243,7 +243,7 @@ namespace RD_AAOW
 			{
 			get
 				{
-				return secondDate.Date.Add (secondTime.Time);
+				return secondDate.Date.Value.Add (secondTime.Time.Value);
 				}
 			set
 				{
