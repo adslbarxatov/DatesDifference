@@ -15,7 +15,7 @@ namespace RD_AAOW
 			{
 			// Инициализация
 			InitializeComponent ();
-			this.Text = ProgramDescription.AssemblyTitle;
+			this.Text = RDGenerics.DefaultAssemblyVisibleName;
 			RDGenerics.LoadWindowDimensions (this);
 
 			LanguageCombo.Items.AddRange (RDLocale.LanguagesNames);
