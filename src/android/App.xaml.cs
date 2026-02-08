@@ -1,4 +1,12 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Graphics;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading.Tasks;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace RD_AAOW
@@ -86,9 +94,9 @@ namespace RD_AAOW
 				solutionFieldBackColor, DateSelectionMethod);
 			firstTime.Margin = Thickness.Zero;
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateIncrement",
-				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod));
+				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod, true));
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateDecrement",
-				RDDefaultButtons.Decrease, solutionFieldBackColor, DateIncrementMethod));
+				RDDefaultButtons.Decrease, solutionFieldBackColor, DateIncrementMethod, true));
 
 			RDInterface.ApplyLabelSettings (solutionPage, "SecondDateLabel",
 				RDLocale.GetText ("SecondDateLabel"), RDLabelTypes.DefaultLeft);
@@ -98,14 +106,14 @@ namespace RD_AAOW
 				solutionFieldBackColor, DateSelectionMethod);
 			secondTime.Margin = Thickness.Zero;
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateIncrement",
-				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod));
+				RDDefaultButtons.Increase, solutionFieldBackColor, DateIncrementMethod, true));
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateDecrement",
-				RDDefaultButtons.Decrease, solutionFieldBackColor, DateIncrementMethod));
+				RDDefaultButtons.Decrease, solutionFieldBackColor, DateIncrementMethod, true));
 
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "FirstDateNow",
-				RDDefaultButtons.Create, solutionFieldBackColor, DateIncrementMethod));
+				RDDefaultButtons.Create, solutionFieldBackColor, DateIncrementMethod, true));
 			incrementButtons.Add (RDInterface.ApplyButtonSettings (solutionPage, "SecondDateNow",
-				RDDefaultButtons.Create, solutionFieldBackColor, DateIncrementMethod));
+				RDDefaultButtons.Create, solutionFieldBackColor, DateIncrementMethod, true));
 
 			firstDate.MinimumDate = secondDate.MinimumDate = minimumDate = new DateTime (1900, 1, 1, 0, 0, 0);
 			firstDate.MaximumDate = secondDate.MaximumDate = maximumDate = new DateTime (2100, 1, 1, 0, 0, 0);
@@ -115,7 +123,7 @@ namespace RD_AAOW
 				RDLocale.GetText ("IncrementLabel"), RDLabelTypes.DefaultLeft);
 			incrementTypesNames.AddRange (DDMath.IncrementNames);
 			incrementTypeButton = RDInterface.ApplyButtonSettings (solutionPage, "IncrementButton",
-				" ", solutionFieldBackColor, SelectIncrementMethod, false);
+				" ", solutionFieldBackColor, SelectIncrementMethod);
 
 			SelectIncrementMethod (null, null);
 
@@ -139,9 +147,9 @@ namespace RD_AAOW
 
 			// Вызов меню
 			Button mnu = RDInterface.ApplyButtonSettings (solutionPage, "MenuButton",
-				RDDefaultButtons.Menu, solutionFieldBackColor, AboutButton_Clicked);
+				RDDefaultButtons.Menu, solutionFieldBackColor, AboutButton_Clicked, true);
 			Button cpy = RDInterface.ApplyButtonSettings (solutionPage, "CopyResultButton",
-				RDLocale.GetText ("CopyResultButton"), solutionFieldBackColor, CopyResult_Clicked, false);
+				RDLocale.GetText ("CopyResultButton"), solutionFieldBackColor, CopyResult_Clicked);
 			incrementTypeButton.HeightRequest = cpy.HeightRequest = mnu.HeightRequest;
 
 			// Загрузка сохранённых значений
@@ -160,10 +168,10 @@ namespace RD_AAOW
 
 			RDInterface.ApplyButtonSettings (aboutPage, "ManualsButton",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_ReferenceMaterials),
-				aboutFieldBackColor, ReferenceButton_Click, false);
+				aboutFieldBackColor, ReferenceButton_Click);
 			RDInterface.ApplyButtonSettings (aboutPage, "HelpButton",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_HelpSupport),
-				aboutFieldBackColor, HelpButton_Click, false);
+				aboutFieldBackColor, HelpButton_Click);
 			RDInterface.ApplyLabelSettings (aboutPage, "GenericSettingsLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_GenericSettings),
 				RDLabelTypes.HeaderLeft);
@@ -177,15 +185,15 @@ namespace RD_AAOW
 				RDLabelTypes.DefaultLeft);
 			languageButton = RDInterface.ApplyButtonSettings (aboutPage, "LanguageSelector",
 				RDLocale.LanguagesNames[(int)RDLocale.CurrentLanguage],
-				aboutFieldBackColor, SelectLanguage_Clicked, false);
+				aboutFieldBackColor, SelectLanguage_Clicked);
 
 			RDInterface.ApplyLabelSettings (aboutPage, "FontSizeLabel",
 				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceFontSize),
 				RDLabelTypes.DefaultLeft);
 			RDInterface.ApplyButtonSettings (aboutPage, "FontSizeInc",
-				RDDefaultButtons.Increase, aboutFieldBackColor, FontSizeButton_Clicked);
+				RDDefaultButtons.Increase, aboutFieldBackColor, FontSizeButton_Clicked, true);
 			RDInterface.ApplyButtonSettings (aboutPage, "FontSizeDec",
-				RDDefaultButtons.Decrease, aboutFieldBackColor, FontSizeButton_Clicked);
+				RDDefaultButtons.Decrease, aboutFieldBackColor, FontSizeButton_Clicked, true);
 			aboutFontSizeField = RDInterface.ApplyLabelSettings (aboutPage, "FontSizeField",
 				" ", RDLabelTypes.DefaultCenter);
 

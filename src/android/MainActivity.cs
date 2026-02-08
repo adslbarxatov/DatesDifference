@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Microsoft.Maui;
 
 namespace RD_AAOW
 	{

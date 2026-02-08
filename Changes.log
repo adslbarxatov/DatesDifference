@@ -1,7 +1,7 @@
 Dates difference: changes log
 
-Version 3.9.1:
-• Internal assemblies have been updated
+Version 3.9.2:
+• Offline help has been replaced with the PDF format
 
 Version 3.9:
 • Windows: app has been migrated to .NET 10;
