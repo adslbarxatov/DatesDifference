@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 3.9.3:
+• Package format has been updated;
+• .NET support packages have been updated
+
 Version 3.9.2:
 • Offline help has been replaced with the PDF format
 

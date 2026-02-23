@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.RD_AAOW.DatesDifference"
-	android:installLocation="internalOnly" android:versionCode="600318" android:versionName="3.9.1">
+	android:installLocation="internalOnly" android:versionCode="600320" android:versionName="3.9.3">
 
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="36" />
 

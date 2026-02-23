@@ -181,7 +181,7 @@ namespace RD_AAOW
 				RDLabelTypes.TipCenter);
 
 			RDInterface.ApplyLabelSettings (aboutPage, "LanguageLabel",
-				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguage),
+				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguageNC) + ":",
 				RDLabelTypes.DefaultLeft);
 			languageButton = RDInterface.ApplyButtonSettings (aboutPage, "LanguageSelector",
 				RDLocale.LanguagesNames[(int)RDLocale.CurrentLanguage],
@@ -196,13 +196,6 @@ namespace RD_AAOW
 				RDDefaultButtons.Decrease, aboutFieldBackColor, FontSizeButton_Clicked, true);
 			aboutFontSizeField = RDInterface.ApplyLabelSettings (aboutPage, "FontSizeField",
 				" ", RDLabelTypes.DefaultCenter);
-
-			RDInterface.ApplyLabelSettings (aboutPage, "HelpHeaderLabel",
-				RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout),
-				RDLabelTypes.HeaderLeft);
-			Label htl = RDInterface.ApplyLabelSettings (aboutPage, "HelpTextLabel",
-				RDGenerics.GetAppHelpText (), RDLabelTypes.SmallLeft);
-			htl.TextType = TextType.Html;
 
 			FontSizeButton_Clicked (null, null);
 
