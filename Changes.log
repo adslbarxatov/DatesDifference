@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 3.9.5:
+• Internal assemblies have been updated;
+• .NET support packages have been updated
+
 Version 3.9.4:
 • Upgraded the update checking method
 

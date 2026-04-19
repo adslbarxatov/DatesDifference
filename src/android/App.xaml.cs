@@ -181,10 +181,10 @@ namespace RD_AAOW
 				RDLabelTypes.TipCenter);
 
 			RDInterface.ApplyLabelSettings (aboutPage, "LanguageLabel",
-				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguageNC) + ":",
+				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguage) + ":",
 				RDLabelTypes.DefaultLeft);
 			languageButton = RDInterface.ApplyButtonSettings (aboutPage, "LanguageSelector",
-				RDLocale.LanguagesNames[(int)RDLocale.CurrentLanguage],
+				RDLocale.LanguagesNamesList[(byte)RDLocale.CurrentLanguage],
 				aboutFieldBackColor, SelectLanguage_Clicked);
 
 			RDInterface.ApplyLabelSettings (aboutPage, "FontSizeLabel",
