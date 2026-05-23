@@ -18,15 +18,6 @@ namespace RD_AAOW
 			this.Text = RDGenerics.DefaultAssemblyVisibleName;
 			RDGenerics.LoadWindowDimensions (this);
 
-			/*LanguageCombo.Items.AddRange (RDLocale.LanguagesNames);
-			try
-				{
-				LanguageCombo.SelectedIndex = (int)RDLocale.CurrentLanguage;
-				}
-			catch
-				{
-				LanguageCombo.SelectedIndex = 0;
-				}*/
 			LocalizeForm_Click (null, null);
 
 			StartDate.Value = DDMath.FirstSavedDate;
@@ -36,17 +27,25 @@ namespace RD_AAOW
 		// Локализация формы
 		private void LocalizeForm_Click (object sender, EventArgs e)
 			{
-			/*// Сохранение языка
-			RDLocale.CurrentLanguage = (RDLanguages)LanguageCombo.SelectedIndex;*/
 			// Выбор языка
 			if ((sender != null) && !RDInterface.MessageBox ())
 				return;
 
 			// Локализация
-			RDLocale.SetControlsText (this);
-			BExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
+			/*RDLocale.SetControlsText (this);*/
+			RDLocale.SetControlText (this.Name, CopyResultButton);
+			RDLocale.SetControlText (this.Name, EndDateLabel);
+			RDLocale.SetControlText (this.Name, EndDateNow);
+			RDLocale.SetControlText (this.Name, LinesLabel);
+			RDLocale.SetControlText (this.Name, StartDateLabel);
+			RDLocale.SetControlText (this.Name, StartDateNow);
+
+			/*BExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
 			LanguageButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguage);
-			AboutButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout);
+			AboutButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout);*/
+			RDLocale.SetDefaultControlText (BExit, RDLDefaultTexts.Button_Exit);
+			RDLocale.SetDefaultControlText (LanguageButton, RDLDefaultTexts.Control_InterfaceLanguage);
+			RDLocale.SetDefaultControlText (AboutButton, RDLDefaultTexts.Control_AppAbout);
 
 			int currentItem = (AdditionalItem.SelectedIndex < 0) ? (int)DDMath.IncrementType :
 				AdditionalItem.SelectedIndex;
