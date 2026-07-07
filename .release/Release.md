@@ -1,13 +1,13 @@
 _en_us_
 
-- Internal assemblies have been updated; 
-- .NET support packages have been updated
+- `Windows`: applied the updated GitHub markup for version numbers;
+- `Android`: added the IOP version checker
 
 ⁂
 
 _ru_ru_
 
-- Обновлены внутренние сборки приложения;
-- Обновлены пакеты поддержки .NET
+- `Windows`: применена обновлённая разметка GitHub для номеров версий;
+- `Android`: добавлен контроль версии IOP
 
 ⁂

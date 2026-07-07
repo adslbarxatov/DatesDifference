@@ -32,17 +32,12 @@ namespace RD_AAOW
 				return;
 
 			// Локализация
-			/*RDLocale.SetControlsText (this);*/
 			RDLocale.SetControlText (this.Name, CopyResultButton);
 			RDLocale.SetControlText (this.Name, EndDateLabel);
 			RDLocale.SetControlText (this.Name, EndDateNow);
 			RDLocale.SetControlText (this.Name, LinesLabel);
 			RDLocale.SetControlText (this.Name, StartDateLabel);
 			RDLocale.SetControlText (this.Name, StartDateNow);
-
-			/*BExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
-			LanguageButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguage);
-			AboutButton.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Control_AppAbout);*/
 			RDLocale.SetDefaultControlText (BExit, RDLDefaultTexts.Button_Exit);
 			RDLocale.SetDefaultControlText (LanguageButton, RDLDefaultTexts.Control_InterfaceLanguage);
 			RDLocale.SetDefaultControlText (AboutButton, RDLDefaultTexts.Control_AppAbout);

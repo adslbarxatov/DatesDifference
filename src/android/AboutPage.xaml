@@ -5,7 +5,11 @@
 
 	<ScrollView>
 		<StackLayout>
-			<Label x:Name="AboutLabel" />
+
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Image x:Name="Logo" VerticalOptions="Center" Source="@drawable/launcher_foreground" MaximumWidthRequest="80" />
+				<Label x:Name="AboutLabel" VerticalOptions="Center" />
+			</StackLayout>
 
 			<BoxView VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" 
 					WidthRequest="200" Color="#505050" Margin="6" />

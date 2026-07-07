@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 4.0:
+• Windows: applied the updated GitHub markup for version numbers;
+• Android: added the IOP version checker
+
 Version 3.9.6:
 • Internal assemblies have been updated;
 • .NET support packages have been updated
