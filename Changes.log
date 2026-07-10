@@ -1,5 +1,9 @@
 Dates difference: changes log
 
+Version 4.0.1:
+• Android: fixed the appearance of the logo on the app splash screen in newer Android versions;
+• Android: adjusted interface behavior when the screen is rotated in newer Android versions
+
 Version 4.0:
 • Windows: applied the updated GitHub markup for version numbers;
 • Android: added the IOP version checker
