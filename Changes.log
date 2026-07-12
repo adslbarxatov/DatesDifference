@@ -1,5 +1,8 @@
 Dates difference: changes log
 
+New version:
+- The list of permissions and the checking method have been adjusted
+
 Version 4.0.1:
 • Android: fixed the appearance of the logo on the app splash screen in newer Android versions;
 • Android: adjusted interface behavior when the screen is rotated in newer Android versions
