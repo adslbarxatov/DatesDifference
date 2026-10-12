@@ -1,5 +1,8 @@
 Dates difference: changes log
 
+Version 4.0.3:
+• Internal assemblies have been updated
+
 Version 4.0.2:
 • Android: the list of permissions and the checking method have been adjusted;
 • Android: enabled the code trimmer and R8 optimization tools (APK size has been reduced by 70%)
