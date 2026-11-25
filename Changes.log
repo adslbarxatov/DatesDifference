@@ -1,6 +1,7 @@
 Dates difference: changes log
 
-Version 4.0.3:
+Version 4.0.4:
+• Android: the app targets API 37 / .NET 11 now;
 • Internal assemblies have been updated
 
 Version 4.0.2:
